@@ -1,2 +1,2 @@
 # project-proton
-Positively self-charged particles
+Positively self-charged particles :)
