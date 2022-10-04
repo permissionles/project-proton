@@ -22,14 +22,15 @@ const PRTN = '0xD17549214EE159A81F4EABa94c3B01118191c675'
     return (
         
         <div className={s.container}>
+<div className={s.iframe}>
 <Iframe url="https://network.occ.site/#/room/#project-proton:matrix.org"
-        width="700"
-        height="820"
-        id=""
-        className=""
-        display="block"
+        height=""
+        width=""
+        
+        min-height="1000px"
         position="relative"/>
-        <div>
+</div>
+<div>
             <div className="Uniswap">
             <SwapWidget
       tokenList={UNISWAP_TOKEN_LIST}
@@ -41,7 +42,9 @@ const PRTN = '0xD17549214EE159A81F4EABa94c3B01118191c675'
 
                        </div>
         </div>
-        </div>
+
+</div>
+
     );
 }
 
