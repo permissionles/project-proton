@@ -1,6 +1,7 @@
 @import "/styles/variables.scss";
 
 .container {
+  padding: 2rem 0;
   background-image: url("/images/ton.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -10,6 +11,12 @@
   .imgWrapper {
     display: flex;
     justify-content: center;
-    padding: 15rem 0 0;
+    padding: 2rem 0 0;
+  }
+
+  .github {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
   }
 }

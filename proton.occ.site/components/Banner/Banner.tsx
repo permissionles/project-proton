@@ -24,7 +24,7 @@ const Banner = () => {
       className={`${s.container}`}
       onClick={() => {
         reaveal();
-        audioControl();
+        // audioControl();
       }}
     >
       <audio ref={audioRef} id="audio" src="/bgMusic.mp3"></audio>
@@ -49,16 +49,16 @@ const Banner = () => {
             />
           </div>
         </div>
-        {/* <div className={s.volume} onClick={audioControl}>
+        <div className={s.volume} onClick={audioControl}>
           <Image
-            src="/images/volume.png"
+            src="/images/play.png"
             alt="proton"
             objectFit="contain"
-            width={120}
-            height={40}
+            width={70}
+            height={70}
           />
           <audio ref={audioRef} id="audio" src="/bgMusic.mp3"></audio>
-        </div> */}
+        </div>
       </div>
     </div>
   );
