@@ -1,0 +1,87 @@
+@import "/styles/variables.scss";
+.container {
+  background: #151515;
+  font-family: $font-proton;
+  color: $color-proton;
+  font-weight: 700;
+  height: 100vh;
+  position: relative;
+
+  .banner {
+    // background: #151515;
+    background-image: url("/images/coin.png");
+    background-color: rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+
+    // :global(.page-loaded) & {
+    //   background-image: url("/images/bg1.png");
+    //   background-size: cover;
+    //   animation: fadeIn 5s;
+    //   opacity: 5;
+    // }
+
+    .imageWrapper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-image: url("/images/PRO.png");
+      background-size: contain;
+      background-color: rgba(0, 0, 0, 0.5);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      height: 100vh;
+      // z-index: -1;
+      opacity: 0;
+      :global(.page-loaded) & {
+        opacity: 5;
+      }
+    }
+    .bannerContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
+      opacity: 0;
+      :global(.page-loaded) & {
+        animation: fadeIn 5s;
+        opacity: 5;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+
+    .footerText {
+      font-weight: 400;
+      color: #fff;
+    }
+  }
+  .volume {
+    position: absolute;
+    text-align: center;
+    bottom: 80px;
+    right: 0;
+    left: 0;
+    opacity: 5;
+    :global(.page-loaded) & {
+      animation: fadeIn 5s;
+    }
+  }
+}

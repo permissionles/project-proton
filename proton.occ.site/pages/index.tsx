@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import ProtonLanding from "../components/ProtonLanding";
+import Banner from "../components/Banner";
+import Banner2 from "../components/Banner2";
 import AppConstant from "../constant/AppConstant";
 
 const Home: NextPage = (props: any) => {
@@ -11,7 +12,8 @@ const Home: NextPage = (props: any) => {
         <meta name="description" content={AppConstant.meta.description} />
         <link rel="icon" href="/images/favicon.png" />
       </Head>
-      <ProtonLanding />
+      <Banner />
+      <Banner2 />
     </>
   );
 };

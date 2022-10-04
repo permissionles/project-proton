@@ -1,0 +1,15 @@
+@import "/styles/variables.scss";
+
+.container {
+  background-image: url("/images/ton.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 15rem 0 0;
+  }
+}
