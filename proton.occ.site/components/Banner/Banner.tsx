@@ -51,7 +51,7 @@ const Banner = () => {
         </div>
         <div className={s.volume} onClick={audioControl}>
           <Image
-            src="/images/play.png"
+            src="/images/play.svg"
             alt="proton"
             objectFit="contain"
             width={70}

@@ -8,6 +8,11 @@
   background-position: center;
   height: 100vh;
 
+  @media screen and (max-width: $mobileResolution) {
+    padding: 0;
+    height: 40vh;
+  }
+
   .imgWrapper {
     display: flex;
     justify-content: center;

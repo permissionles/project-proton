@@ -6,6 +6,9 @@
   font-weight: 700;
   height: 100vh;
   position: relative;
+  @media screen and (max-width: $mobileResolution) {
+    margin: 0 2rem;
+  }
 
   .banner {
     // background: #151515;
