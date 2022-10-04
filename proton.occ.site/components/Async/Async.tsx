@@ -8,10 +8,12 @@ const Async:FC = () => {
 <Iframe url="https://app.async.network"
         width="1300"
         height="720"
+    
         id=""
         className=""
         display="block"
         position="relative"/>
+    
     </div>)
 }
 

@@ -3,24 +3,27 @@
 
 .container{
     // height: 900px;
-    width: 100%;
+    
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    margin: 0 100px;
     position: relative;
-    overflow: hidden;
-    width: 100%;
+    
+    
     // padding-top: 56.25%;
 
     @media screen and (max-width: $mobileResolution) {
         display: flex;
-        flex-direction: col;
+        flex-direction: column;
+
     }
 
     .iframe{
         position: relative;
         // margin:  0 2rem ;
-        height: 500px;
+        height: 100px;
         width: 100px;
     }
+
+    margin-bottom: 50px;
 }

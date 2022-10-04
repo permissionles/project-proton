@@ -22,9 +22,11 @@ const PRTN = '0xD17549214EE159A81F4EABa94c3B01118191c675'
     return (
         
         <div className={s.container}>
+            
 <div className={s.iframe}>
 <Iframe url="https://network.occ.site/#/room/#project-proton:matrix.org"
-       
+        height="800px"
+        width="600px"
        
         position="relative"/>
 </div>
