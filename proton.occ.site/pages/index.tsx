@@ -3,6 +3,7 @@ import Head from "next/head";
 import Async from "../components/Async";
 import Banner from "../components/Banner";
 import Banner2 from "../components/Banner2";
+import Uniswap from "../components/Uniswap";
 import AppConstant from "../constant/AppConstant";
 
 const Home: NextPage = (props: any) => {
@@ -16,6 +17,7 @@ const Home: NextPage = (props: any) => {
       <Banner />
       <Banner2 />
       <Async />
+      <Uniswap />
     </>
   );
 };
