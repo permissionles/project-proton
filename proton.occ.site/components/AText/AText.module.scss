@@ -1,0 +1,20 @@
+@import "/styles/variables.scss";
+
+.AText {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-family: $font-proton;
+    color: $color-proton;
+}
+
+.button{
+    margin: 10px;
+    color: #fff;
+    background-color: #000;
+}

@@ -6,9 +6,9 @@ const Banner2 = () => {
   return (
     <div className={s.container}>
       <div className={s.github}>
-      <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xD17549214EE159A81F4EABa94c3B01118191c675">
+      <a href="https://github.com/permissionles/project-proton" target="blank">
       <button className={s.button}>
-      The-proton-project @github
+      click here to track @project-proton
       </button>
       </a>
         <iframe

@@ -40,6 +40,7 @@ const Banner = () => {
           />
           <div className={s.content}>
             <span className={s.footerText}>an on-chain corporation by</span>
+            <a href="https://prmsnls.com" target={"blank"}>
             <Image
               src="/images/prmsnlsLogo.png"
               alt="proton"
@@ -47,6 +48,7 @@ const Banner = () => {
               width={120}
               height={40}
             />
+            </a>
           </div>
         </div>
         <div className={s.volume} onClick={audioControl}>

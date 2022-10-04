@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Async from "../components/Async";
+import AText from "../components/AText";
 import Banner from "../components/Banner";
 import Banner2 from "../components/Banner2";
 import HeadText from "../components/HeadText";
@@ -17,6 +18,7 @@ const Home: NextPage = (props: any) => {
       </Head>
       <Banner />
       <Banner2 />
+      <AText/>
       <Async />
       <HeadText/>
       <Uniswap />
