@@ -1,9 +1,18 @@
 .btn-prt {
-  padding: 1rem 3rem;
+  padding: 0.8rem 3rem;
   border-radius: 10px;
   background-color: $color-proton;
   color: #000;
   font-weight: 500;
+  cursor: pointer;
+  height: unset;
+  border: 0;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color-proton;
+    color: #000;
+  }
   &--bordered {
     color: $color-proton;
     background-color: transparent;

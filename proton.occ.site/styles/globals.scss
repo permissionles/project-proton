@@ -17,6 +17,9 @@ a {
 * {
   box-sizing: border-box;
 }
+.text-center {
+  text-align: center;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

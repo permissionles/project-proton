@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { FC } from "react";
+import AddReward from "../AddReward";
 import { StockListData } from "./Data";
 import s from "./RewardList.module.scss";
 
@@ -9,7 +10,7 @@ const RewardList: FC = () => {
     <div className={s.container}>
       <div className={s.header}>
         <img className={s.title} src="/images/reward-title.svg" alt="" />
-        <span className={`${s.add}`}>+ Add Rewards</span>
+        <AddReward />
       </div>
       {StockListData.map((item, i) => (
         <div key={i} className={s.list}>
