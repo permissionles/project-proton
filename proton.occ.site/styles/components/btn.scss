@@ -1,0 +1,12 @@
+.btn-prt {
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  background-color: $color-proton;
+  color: #000;
+  font-weight: 500;
+  &--bordered {
+    color: $color-proton;
+    background-color: transparent;
+    border: 1px solid $color-proton;
+  }
+}

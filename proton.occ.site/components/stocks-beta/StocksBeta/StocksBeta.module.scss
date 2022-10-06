@@ -1,0 +1,46 @@
+@import "/styles/variables.scss";
+
+.container {
+  margin-top: 15rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  .banner {
+    position: relative;
+    .wallet {
+      position: absolute;
+      right: 1rem;
+      top: 70%;
+    }
+  }
+  .poolContainer {
+    // padding: 0 2rem;
+    .total {
+      display: flex;
+      justify-content: flex-end;
+      letter-spacing: -0.01em;
+      color: $color-proton;
+    }
+    .progress {
+      background: #1a1a1a;
+      height: 20px;
+      margin-top: 0.5rem;
+      .percent {
+        display: block;
+        background: linear-gradient(
+          180deg,
+          #33e9e9 0%,
+          rgba(51, 233, 233, 0) 94.74%
+        );
+        height: 100%;
+      }
+    }
+  }
+  .stack {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  .content {
+    padding: 0 1rem;
+  }
+}

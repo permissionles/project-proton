@@ -1,0 +1,39 @@
+@import "/styles/variables.scss";
+
+.container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    .title {
+      width: 30rem;
+    }
+  }
+
+  .add {
+    padding: 1rem 3rem;
+    color: $color-proton;
+  }
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(29.4548px);
+    margin: 0.7rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    .name {
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .action {
+      padding: 0.6rem 2rem;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
