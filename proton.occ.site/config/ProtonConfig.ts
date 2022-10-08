@@ -8,15 +8,15 @@ const ProtonConfig = {
   tokenName: "PRTN",
   CMS_API_URL: "",
   contract: {
-    krl: {
+    proton: {
       token: PRTNToken,
       staking: PRTNStaking,
     },
     genericABI,
   },
   RPC: isDevelopment
-    ? "https://matic-mumbai.chainstacklabs.com"
-    : "https://polygon-rpc.com/",
+    ? "https://matic-testnet-archive-rpc.bwarelabs.com"
+    : "https://matic-testnet-archive-rpc.bwarelabs.com",
 
   chainId: isDevelopment ? 80001 : 137,
   networkList: {

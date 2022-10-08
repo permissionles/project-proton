@@ -1,13 +1,13 @@
 import { Spin } from "antd";
 import { FC, useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
 import { StakingService } from "services";
-import { authAtom } from "src/_state";
+import { useAccount } from "wagmi";
 import StakedItem, { StakingDataInterface } from "./StakedItem";
 import s from "./StakingPage.module.scss";
 
 const UserStakes: FC = () => {
-  const auth = useRecoilValue(authAtom);
+  const { address, isConnected } = useAccount();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const [userStakes, setUserStakes] = useState<StakingDataInterface[]>([]);
@@ -16,7 +16,7 @@ const UserStakes: FC = () => {
     try {
       setIsLoading(true);
       let tokenStakedCollection: StakingDataInterface[] =
-        await StakingService.getStakes(auth?.address!!);
+        await StakingService.getStakes(address!!);
 
       tokenStakedCollection = tokenStakedCollection.map((item, i) => {
         return {

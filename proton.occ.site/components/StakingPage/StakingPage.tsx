@@ -1,35 +1,34 @@
 import BlueCard from "@components/common/BlueCard";
-import { DynamicIcon } from "@components/ui/icon";
-import AppConfig from "@config/appConfig";
+import ProtonConfig from "@config/ProtonConfig";
 import { Form } from "antd";
+import { ethers } from "ethers";
 import { round } from "mathjs";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
 import { MiscService, StakingService } from "services";
-import { authAtom } from "src/_state";
-import Web3 from "web3";
+import { useAccount } from "wagmi";
 import StakeTokens from "./StakeTokens";
 import s from "./StakingPage.module.scss";
 import UserStakes from "./UserStakes";
 
 const StakingPage: FC = () => {
-  const auth = useRecoilValue(authAtom);
-
   const [form] = Form.useForm();
   const [tokenData, setTokenData] = useState({
     totalStaked: "",
     totalRewardsClaimed: "",
     tokenRate: "",
   });
+  const { address, isConnected } = useAccount();
 
   const getTotalTokenStaked = async () => {
     try {
       let response = await MiscService.balanceOf(
-        AppConfig.contract.krl.token.address,
-        AppConfig.contract.krl.staking.address
+        ProtonConfig.contract.proton.token.address,
+        ProtonConfig.contract.proton.staking.address
       );
-      response = Web3.utils.fromWei(response, "ether");
+      response = ethers.utils.formatUnits(response, "ether");
+      console.log("staked", response);
+
       setTokenData((value: any) => {
         return {
           ...value,
@@ -37,14 +36,14 @@ const StakingPage: FC = () => {
         };
       });
     } catch (error) {
-      console.log(error);
+      console.log(error, "staked");
     }
   };
 
   const getTotalRewardsClaimed = async () => {
     try {
       let response = await StakingService.rewardsClaimed();
-      response = Web3.utils.fromWei(response, "ether");
+      response = ethers.utils.formatUnits(response, "ether");
 
       setTokenData((value: any) => {
         return {
@@ -52,8 +51,9 @@ const StakingPage: FC = () => {
           totalRewardsClaimed: round(response, 2),
         };
       });
+      console.log("reward-1", response);
     } catch (error) {
-      console.log(error);
+      console.log(error, "reward1");
     }
   };
 
@@ -79,7 +79,7 @@ const StakingPage: FC = () => {
           <div className={`${s.cardsRow}`}>
             <BlueCard
               textLine1="Overall "
-              textLine2={`Stocked ${AppConfig.tokenName}`}
+              textLine2={`Stocked ${ProtonConfig.tokenName}`}
               textLine3={tokenData.totalStaked}
               type="small"
             />
@@ -92,7 +92,7 @@ const StakingPage: FC = () => {
             />
 
             <BlueCard
-              textLine1={`${AppConfig.tokenName}`}
+              textLine1={`${ProtonConfig.tokenName}`}
               textLine2="Price"
               type="small"
               textLine3={tokenData.tokenRate}
@@ -101,13 +101,7 @@ const StakingPage: FC = () => {
 
           <StakeTokens />
 
-          {auth?.address && <UserStakes />}
-        </div>
-        <div className={`${s.faqSection} text-center`}>
-          <div className={`${s.faq}`}>
-            <DynamicIcon type="Chat" />
-            <span className="blue">FAQ</span>
-          </div>
+          {isConnected && <UserStakes />}
         </div>
       </div>
     </>

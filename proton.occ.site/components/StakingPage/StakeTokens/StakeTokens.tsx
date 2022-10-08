@@ -1,12 +1,12 @@
-import AppConfig from "../../../config/ProtonConfig";
+import ProtonConfig from "@config/ProtonConfig";
 import { Button, Form, Input, notification, Radio } from "antd";
 import { round } from "mathjs";
 import { FC, useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { MiscService, StakingService } from "services";
-import { authAtom } from "src/_state";
-import Web3 from "web3";
+// import { MiscService, StakingService } from "services";
+// import Web3 from "web3";
 import s from "../StakingPage.module.scss";
+import { useAccount, useContractWrite, useProvider } from "wagmi";
+import { ethers, Signer } from "ethers";
 
 const StakeTokens: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,8 +14,28 @@ const StakeTokens: FC = () => {
   const [isInitialzed, setIsInitialzed] = useState(false);
   const [userAmount, setUserAmount] = useState<number | string>("");
   const [rewardValue, setRewardValue] = useState(0);
+  const { address, isConnected, connector } = useAccount();
+  const [signer, setSigner] = useState<Signer | null>(null);
+  const provider = useProvider();
 
-  const auth = useRecoilValue(authAtom);
+  const { writeAsync: stakeTokenWrite } = useContractWrite({
+    mode: "recklesslyUnprepared",
+    addressOrName: ProtonConfig.contract.proton.staking.address,
+    contractInterface: ProtonConfig.contract.proton.staking.abi,
+    functionName: "stake",
+  });
+
+  // get signer
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await connector?.getSigner();
+        setSigner(res);
+      } catch (e) {
+        setSigner(null);
+      }
+    })();
+  }, [connector]);
 
   const expectedReturn = () => {
     setRewardValue(0);
@@ -46,7 +66,7 @@ const StakeTokens: FC = () => {
       });
       return;
     }
-    if (!auth?.address) {
+    if (!isConnected) {
       notification.error({
         message: "Connect your wallet",
         key: "stake-form-error",
@@ -54,7 +74,12 @@ const StakeTokens: FC = () => {
       return;
     }
     const [month] = formValues.duration.split("-");
-    const tokenAmountInWei = Web3.utils.toWei(formValues.amount + "", "ether");
+    const tokenAmountInWei = ethers.utils.formatUnits(
+      formValues.amount + "",
+      "wei"
+    );
+
+    console.log("tokenAmountInWei", tokenAmountInWei);
 
     try {
       setIsLoading(true);
@@ -67,14 +92,14 @@ const StakeTokens: FC = () => {
         "Token Amount in Wei: ",
         tokenAmountInWei,
         "From: ",
-        auth.address!!
+        address
       );
-      await StakingService.stakeToken(
-        0,
-        tokenAmountInWei,
-        month,
-        auth?.address!!
-      );
+
+      // await StakingService.stakeToken(0, tokenAmountInWei, month, address);
+      const stakeTokenWriteResponse = await stakeTokenWrite({
+        recklesslySetUnpreparedArgs: [0, tokenAmountInWei, month],
+      });
+      await stakeTokenWriteResponse.wait();
       notification.success({ message: "Token Successfully Staked" });
     } catch (error: any) {
       if (error.message) {
@@ -95,13 +120,24 @@ const StakeTokens: FC = () => {
   const approveToken = async (tokenAmount: any) => {
     try {
       setIsLoading(true);
-      await MiscService.approveToken(
-        AppConfig.contract.krl.token.address,
-        AppConfig.contract.krl.staking.address,
-        tokenAmount,
-        auth?.address!!
+      let contract = new ethers.Contract(
+        ProtonConfig.contract.proton.token.address,
+        ProtonConfig.contract.genericABI,
+        signer!!
       );
+      const response = await contract.approve(
+        ProtonConfig.contract.proton.staking.address,
+        tokenAmount
+      );
+      await provider.waitForTransaction(response.hash);
+      // await MiscService.approveToken(
+      //   ProtonConfig.contract.proton.token.address,
+      //   ProtonConfig.contract.proton.staking.address,
+      //   tokenAmount,
+      //   address!!
+      // );
     } catch (error) {
+      console.log("error", error);
       setIsLoading(false);
     } finally {
     }
@@ -134,7 +170,7 @@ const StakeTokens: FC = () => {
   return (
     <div className={`${s.stakeCard}`}>
       <div className={`${s.textCenter} f22 f-lg fm-26 blue fw400`}>
-        STOCK YOUR ${AppConfig.tokenName}
+        STOCK YOUR ${ProtonConfig.tokenName}
       </div>
 
       <Form
@@ -168,7 +204,7 @@ const StakeTokens: FC = () => {
         <p className={`${s.feildTitle} f22 blue fm-26`}>DURATION</p>
         <Form.Item name="duration">
           <Radio.Group>
-            {AppConfig.contract.krl.staking.package.map((item, i) => (
+            {ProtonConfig.contract.proton.staking.package.map((item, i) => (
               <Radio.Button value={`${item.month}-${item.apr}`} key={i}>
                 {item.month} Months <br /> ({item.apr}% APR)
               </Radio.Button>
@@ -179,7 +215,7 @@ const StakeTokens: FC = () => {
         <div className={`${s.rewards}  text-center `}>
           <div className={`f22 white fm-26`}>Expected stocking reward</div>
           <div className=" f22 blue fm-26">
-            {rewardValue} {AppConfig.tokenName}
+            {rewardValue} {ProtonConfig.tokenName}
           </div>
         </div>
 

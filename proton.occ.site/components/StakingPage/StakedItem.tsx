@@ -1,14 +1,13 @@
 import BlueCard from "@components/common/BlueCard";
-import AppConfig from "@config/appConfig";
+import ProtonConfig from "@config/ProtonConfig";
 import { Button, notification } from "antd";
+import { ethers } from "ethers";
 import { round } from "mathjs";
 import moment from "moment";
 import { FC, useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
 import { StakingService } from "services";
-import { authAtom } from "src/_state";
 import Misc from "utility/Misc";
-import Web3 from "web3";
+import { useAccount } from "wagmi";
 import s from "./StakingPage.module.scss";
 
 export interface StakingDataInterface {
@@ -30,18 +29,20 @@ interface Props {
 
 const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   const [currentReward, setCurrentReward] = useState(0);
-  const auth = useRecoilValue(authAtom);
+  // const auth = useRecoilValue(authAtom);
   const [isLoading, setIsLoading] = useState(false);
+  const { address, isConnected } = useAccount();
 
-  const stakingContract = AppConfig.contract.krl.staking;
+  const stakingContract = ProtonConfig.contract.proton.staking;
   const tokenStaked = () => {
-    return round(+Web3.utils.fromWei(stakingData.amount, "ether"));
+    return round(+ethers.utils.formatUnits(stakingData.amount, "ether"));
   };
 
   const getAPR = () => {
     return (
-      stakingContract.package.find((item) => item.month == +stakingData.months)
-        ?.apr || 0
+      stakingContract.package.find(
+        (item: any) => item.month == +stakingData.months
+      )?.apr || 0
     );
   };
 
@@ -90,15 +91,15 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   const getReward = async () => {
     try {
       const response = await StakingService.getCurrentRewards(
-        auth?.address!!,
+        address!!,
         itemIndex!!
       );
       const totalRewardTillNow = round(
-        +Web3.utils.fromWei(response, "ether"),
+        +ethers.utils.formatUnits(response, "ether"),
         2
       );
       const totalClaimedReward = round(
-        +Web3.utils.fromWei(stakingData.claimed + "", "ether"),
+        +ethers.utils.formatUnits(stakingData.claimed + "", "ether"),
         2
       );
       if (totalRewardTillNow > 0) {
@@ -120,7 +121,7 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
       setIsLoading(true);
       await StakingService[isUnstake ? "unStakeToken" : "claimRewards"](
         itemIndex!!,
-        auth?.address!!
+        address!!
       );
       getReward();
       notification.success({ message: "Successfully processed" });
@@ -149,15 +150,17 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
 
   return (
     <BlueCard
-      textLine1={`${tokenStaked()} ${AppConfig.tokenName} `}
+      textLine1={`${tokenStaked()} ${ProtonConfig.tokenName} `}
       textLine3={`${remainingDays() ? remainingDays() + " remaining" : ""}`}
       textLine4={`${
         currentReward > 0
-          ? `Current Reward: ${round(currentReward, 3)} ${AppConfig.tokenName}`
+          ? `Current Reward: ${round(currentReward, 3)} ${
+              ProtonConfig.tokenName
+            }`
           : ""
       }`}
       apr={`${getAPR() || "-"}% APR`}
-      krlAmount={`${getTotalReturns()} ${AppConfig.tokenName}`}
+      krlAmount={`${getTotalReturns()} ${ProtonConfig.tokenName}`}
       itemIndex={itemIndex}
     >
       <div className={`${s.action}`}>
