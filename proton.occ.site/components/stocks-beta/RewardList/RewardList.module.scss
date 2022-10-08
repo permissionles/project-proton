@@ -8,8 +8,9 @@
     margin-bottom: 4rem;
     .title {
       width: 30rem;
-      @media screen and (max-width: 300px) {
-        width: 15rem;
+      @media screen and (max-width: $mobileResolution) {
+        width: 10rem;
+        margin-top: 3rem;
       }
     }
   }
@@ -24,8 +25,35 @@
   margin: 0.7rem 0;
   padding: 0.5rem 0.5rem;
   border-radius: 16px;
+  @media screen and (max-width: $mobileResolution) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+  .onlyMobile {
+    @media screen and (min-width: $mobileResolution) {
+      display: none;
+    }
+  }
+  .onlyDesktop {
+    @media screen and (max-width: $mobileResolution) {
+      display: none;
+    }
+  }
   .col {
     flex: 0 0 20%;
+    @media screen and (max-width: $mobileResolution) {
+      margin-top: 1rem;
+    }
+  }
+  .address {
+    white-space: pre-wrap; /* CSS3 */
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -pre-wrap; /* Opera <7 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
   }
   .name {
     display: inline-block;
@@ -36,6 +64,7 @@
 
     @media screen and (max-width: $mobileResolution) {
       padding: 0.6rem 1rem;
+      margin-top: 1rem;
     }
   }
   .title {

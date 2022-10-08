@@ -59,11 +59,12 @@ const RewardItem: FC<Props> = ({ data }) => {
         <span className={s.name}>{tokenInfo.symbol}</span>
       </div>
 
-      <span className={`${s.address} ${s.col}`}>
+      <span className={`${s.address} ${s.col} ${s.onlyDesktop}`}>
         {data.id.slice(0, 6)}...${data?.id.slice(-4)}
       </span>
+      <span className={`${s.address} ${s.col} ${s.onlyMobile}`}>{data.id}</span>
       {tokenInfo.decimals && (
-        <span className={`${s.amount} ${s.col}`}>
+        <span className={`${s.amount} ${s.col} ${s.onlyDesktop}`}>
           <Tooltip title="Token Distributed">
             <span>
               {+data.tokensDistributed / Math.pow(10, tokenInfo.decimals)}
@@ -75,6 +76,19 @@ const RewardItem: FC<Props> = ({ data }) => {
               {+data.tokensDeposited / Math.pow(10, tokenInfo.decimals)}
             </span>
           </Tooltip>
+        </span>
+      )}
+      {tokenInfo.decimals && (
+        <span className={`${s.amount} ${s.col} ${s.onlyMobile}`}>
+          Token Distributed:{" "}
+          <span>
+            {+data.tokensDistributed / Math.pow(10, tokenInfo.decimals)}
+          </span>
+          <br />
+          Token Deposited:{" "}
+          <span>
+            {+data.tokensDeposited / Math.pow(10, tokenInfo.decimals)}
+          </span>
         </span>
       )}
 
