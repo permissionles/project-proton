@@ -80,14 +80,14 @@ const StakingPage: FC = () => {
             <BlueCard
               textLine1="Overall "
               textLine2={`Stocked ${ProtonConfig.tokenName}`}
-              textLine3={tokenData.totalStaked}
+              textLine3={`43234`}
               type="small"
             />
 
             <BlueCard
-              textLine1="Overall Stoking"
+              textLine1="Overall Stocking"
               textLine2="Rewards Generated"
-              textLine3={tokenData.totalRewardsClaimed}
+              textLine3={`0.004`}
               type="small"
             />
 
@@ -95,7 +95,7 @@ const StakingPage: FC = () => {
               textLine1={`${ProtonConfig.tokenName}`}
               textLine2="Price"
               type="small"
-              textLine3={tokenData.tokenRate}
+              textLine3={`0.004335`}
             />
           </div>
 

@@ -25,7 +25,7 @@ const BlueCard: FC<Props> = ({
   krlAmount = "",
   claimButton = false,
   itemIndex,
-  //   children,
+  // children,
 }) => {
   return (
     <>

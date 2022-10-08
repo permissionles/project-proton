@@ -219,7 +219,7 @@ const StakeTokens: FC = () => {
         <Form.Item className="text-center">
           <div className="btnWrapper m0-auto">
             <Button htmlType="submit" loading={isLoading}>
-              STAKE
+              STOCK
             </Button>
           </div>
         </Form.Item>
