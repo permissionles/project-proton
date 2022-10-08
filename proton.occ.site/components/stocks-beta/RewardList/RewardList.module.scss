@@ -8,35 +8,38 @@
     margin-bottom: 4rem;
     .title {
       width: 30rem;
-      @media screen and (min-width: 300px) {
+      @media screen and (max-width: 300px) {
         width: 15rem;
       }
     }
   }
+}
 
-  .list {
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(29.4548px);
+  margin: 0.7rem 0;
+  padding: 0.5rem 0.5rem;
+  border-radius: 16px;
+  .col {
+    flex: 0 0 20%;
+  }
+  .name {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+  .action {
+    padding: 0.6rem 2rem;
+
+    @media screen and (max-width: $mobileResolution) {
+      padding: 0.6rem 1rem;
+    }
+  }
+  .title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(29.4548px);
-    margin: 0.7rem 0;
-    padding: 0.5rem 0.5rem;
-    border-radius: 16px;
-    .name {
-      display: inline-block;
-      margin-left: 0.5rem;
-    }
-    .action {
-      padding: 0.6rem 2rem;
-
-      @media screen and (max-width: $mobileResolution) {
-        padding: 0.6rem 1rem;
-      }
-    }
-    .title {
-      display: flex;
-      align-items: center;
-    }
   }
 }

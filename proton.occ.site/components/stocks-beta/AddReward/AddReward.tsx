@@ -99,7 +99,7 @@ const AddReward: FC = () => {
         className="theme-modal-ui"
       >
         <Form onFinish={onFinish} className={`theme-form`}>
-          <span className="title">Select a token</span>
+          <span className="title">Add reward</span>
           <Form.Item
             name="tokenAddress"
             rules={[

@@ -1,6 +1,7 @@
 export const stocks = {
   address: "0x003a297f65996915e0d8caac166c4f8bbbc14f66",
   tokenToStake: "0x54806ff16f380472ae6033a0e17a304a4ecb25bf",
+  graphAPI: 'https://api.thegraph.com/subgraphs/name/prmsnlsmalinga/protonstaking',
   abi: [
     { inputs: [], stateMutability: "nonpayable", type: "constructor" },
     {

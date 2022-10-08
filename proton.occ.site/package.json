@@ -13,6 +13,7 @@
     "@uniswap/widgets": "^2.9.2",
     "@walletconnect/ethereum-provider": "^1.8.0",
     "antd": "^4.23.4",
+    "axios": "^1.1.2",
     "ethers": "^5.7.1",
     "generate-react-cli": "^7.4.0",
     "next": "12.3.1",

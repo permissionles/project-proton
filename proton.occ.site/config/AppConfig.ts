@@ -1,6 +1,9 @@
 import { stocks } from "./contract/stocks";
 
+const isDevelopment = process.env.NEXT_PUBLIC_ENV === 'development'
+
 export const AppConfig = {
+  rpcNetwork: isDevelopment ? 'https://matic-testnet-archive-rpc.bwarelabs.com' : 'https://matic-testnet-archive-rpc.bwarelabs.com',
   stockTokenList: [
     {
       icon: "/images/icon/usdc.png",
@@ -8,7 +11,7 @@ export const AppConfig = {
       address: "0x631709EBDD0A4ffE5740F00049B611586FF2aa76",
     },
     {
-      icon: "/images/icon/usdt.png",
+      icon: "/images/icon/USDT.png",
       name: "USDT",
       address: "0x631709EBDD0A4ffE5740F00049B611586FF2aa76",
     },

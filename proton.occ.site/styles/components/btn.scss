@@ -18,6 +18,11 @@
     background-color: transparent;
     border: 1px solid $color-proton;
   }
+  &--disabled,
+  [disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
   @media screen and (max-width: $mobileResolution) {
     padding: 0.8rem 2rem;
   }
