@@ -1,11 +1,10 @@
-import { Header, VestingWelcome } from "@components/common";
 import ConnectWalletPage from "@components/ConnectWalletPage";
 import { FC, useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { authAtom } from "src/_state";
+// import { authAtom } from "src/_state";
 
 const VestingPage: FC = () => {
-  const auth = useRecoilValue(authAtom);
+  // const auth = useRecoilValue(authAtom);
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
@@ -17,13 +16,13 @@ const VestingPage: FC = () => {
     <>
       {isPageLoaded && (
         <div>
-          {auth?.address && (
+          {/* {auth?.address && (
             <>
               <Header />
               <VestingWelcome />
             </>
           )}
-          {!auth?.address && <ConnectWalletPage />}
+          {!auth?.address && <ConnectWalletPage />} */}
         </div>
       )}
     </>
