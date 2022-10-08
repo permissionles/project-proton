@@ -1,12 +1,19 @@
 @import "/styles/variables.scss";
 
 .container {
-  margin-top: 5rem;
+  margin-top: 20rem;
   overflow: hidden;
   margin-bottom: 2rem;
 
   .banner {
     position: relative;
+    // width: 1512px;
+    height: 423px;
+
+    @media screen and (max-width: $mobileResolution) {
+      // width: 508px;
+      height: 152px;
+    }
     .wallet {
       position: absolute;
       right: 1rem;
@@ -40,6 +47,10 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 1rem;
+
+    @media screen and (max-width: $mobileResolution) {
+      justify-content: center;
+    }
   }
   .content {
     padding: 0 1rem;

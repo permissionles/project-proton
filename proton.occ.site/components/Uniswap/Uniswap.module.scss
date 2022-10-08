@@ -1,29 +1,35 @@
 @import "/styles/variables.scss";
 
+.container {
+  // height: 900px;
 
-.container{
-    // height: 900px;
-    
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+  position: relative;
+
+  // padding-top: 56.25%;
+
+  @media screen and (max-width: $mobileResolution) {
     display: flex;
-    justify-content: space-between;
-    margin: 0 100px;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .iframe {
     position: relative;
-    
-    
-    // padding-top: 56.25%;
+    // margin:  0 2rem ;
+    height: 100px;
+    width: 100px;
 
     @media screen and (max-width: $mobileResolution) {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      margin: 0 auto;
 
+      height: unset;
+      width: unset;
     }
+  }
 
-    .iframe{
-        position: relative;
-        // margin:  0 2rem ;
-        height: 100px;
-        width: 100px;
-    }
-
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }

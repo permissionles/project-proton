@@ -5,12 +5,14 @@ import PoolProgress from "./PoolProgress";
 import s from "./StocksBeta.module.scss";
 import RewardList from "../RewardList";
 import WalletConnect from "../../common/WalletConnect";
+import Image from "next/image";
 
 const StocksBeta: FC = () => {
   return (
     <div className={s.container}>
       <div className={s.banner}>
-        <img src="/images/stocks-banner.svg" alt="" />
+        <Image src="/images/stocks-banner.svg" alt="proton" layout="fill" />
+        {/* <img src="" alt="" /> */}
         <div className={s.wallet}>
           <WalletConnect />
         </div>

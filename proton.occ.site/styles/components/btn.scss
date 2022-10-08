@@ -18,4 +18,7 @@
     background-color: transparent;
     border: 1px solid $color-proton;
   }
+  @media screen and (max-width: $mobileResolution) {
+    padding: 0.8rem 2rem;
+  }
 }
