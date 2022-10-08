@@ -19,7 +19,7 @@ const BlueCard: FC = () => {
       <div className={`${s.compWrapper}`}>
         <div className="vestingHeader">
           <div className="logoWrapper">
-            <Image src="/images/logo.svg" alt="logo" layout="fill" />
+            <Image src="/images/staking/logo.svg" alt="logo" layout="fill" />
           </div>
         </div>
         <div className={`${s.connectWalletCard}`}>

@@ -210,8 +210,8 @@ const StakeTokens: FC = () => {
         </Form.Item>
 
         <div className={`${s.rewards}  text-center `}>
-          <div className={`f22 white fm-26`}>Expected stocking reward</div>
-          <div className=" f22 blue fm-26">
+          <div className={s.heading}>Expected stocking reward</div>
+          <div className="value">
             {rewardValue} {ProtonConfig.tokenName}
           </div>
         </div>

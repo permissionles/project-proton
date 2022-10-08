@@ -1,4 +1,4 @@
-import BlueCard from "@components/common/BlueCard";
+import BlueCard from "@components/BlueCard";
 import ProtonConfig from "@config/ProtonConfig";
 import { Form } from "antd";
 import { ethers } from "ethers";
@@ -69,7 +69,7 @@ const StakingPage: FC = () => {
         <div className={`${s.stakingPageContent}`}>
           <div className={s.stockBg}>
             <Image
-              src={"/images/stock-title.png"}
+              src={"/images/staking/stock-title.png"}
               alt="Stock Bg"
               height={500}
               width={1000}

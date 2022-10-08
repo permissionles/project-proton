@@ -31,6 +31,9 @@ a {
     background: black;
   }
 }
+.value {
+  color: #3bf3ff;
+}
 
 .Uniswap {
   display: flex;
@@ -38,4 +41,18 @@ a {
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 4rem;
+}
+.ant-radio-button-wrapper {
+  width: 30%;
+  border-radius: 6px !important;
+  padding: 23px 23px 18px;
+  background: url(/images/staking/checkbox-border.png);
+  background-size: 100% 100%;
+  height: unset;
+  text-align: center;
+  color: #fff !important;
+  margin-bottom: 2rem;
+  transition: all 0.2s linear;
+  border: 0px !important;
+  margin-right: 4.5%;
 }
