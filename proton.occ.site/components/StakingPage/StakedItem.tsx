@@ -34,26 +34,33 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   const { address, isConnected } = useAccount();
 
   const stakingContract = ProtonConfig.contract.proton.staking;
+  console.log("stakingData.amount.toString()", stakingData.amount.toString());
   const tokenStaked = () => {
-    return round(+ethers.utils.formatUnits(stakingData.amount, "ether"));
+    return round(
+      +ethers.utils.formatUnits(stakingData.amount.toString(), "ether")
+    );
   };
 
   const getAPR = () => {
     return (
       stakingContract.package.find(
-        (item: any) => item.month == +stakingData.months
+        (item: any) => item.month == +stakingData.months.toString()
       )?.apr || 0
     );
   };
 
   const getTotalReturns = () => {
-    return Misc.calculateAPR(+tokenStaked(), getAPR(), +stakingData.months);
+    return Misc.calculateAPR(
+      +tokenStaked(),
+      getAPR(),
+      +stakingData.months.toString()
+    );
   };
 
   const remainingDays = () => {
     // const currentDate = moment().startOf('day');
     const currentTime = moment.utc();
-    const endTime = moment.unix(+stakingData.endTime);
+    const endTime = moment.unix(+stakingData.endTime.toString());
     const duration = moment.duration(endTime.diff(currentTime));
 
     const durationList = [
@@ -95,13 +102,14 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
         itemIndex!!
       );
       const totalRewardTillNow = round(
-        +ethers.utils.formatUnits(response, "ether"),
+        +ethers.utils.formatUnits(response.toString(), "ether"),
         2
       );
       const totalClaimedReward = round(
-        +ethers.utils.formatUnits(stakingData.claimed + "", "ether"),
+        +ethers.utils.formatUnits(stakingData.claimed.toString() + "", "ether"),
         2
       );
+
       if (totalRewardTillNow > 0) {
         setCurrentReward(totalRewardTillNow - totalClaimedReward);
       }

@@ -74,12 +74,9 @@ const StakeTokens: FC = () => {
       return;
     }
     const [month] = formValues.duration.split("-");
-    const tokenAmountInWei = ethers.utils.formatUnits(
-      formValues.amount + "",
-      "wei"
+    const tokenAmountInWei = ethers.utils.parseEther(
+      formValues.amount.toString()
     );
-
-    console.log("tokenAmountInWei", tokenAmountInWei);
 
     try {
       setIsLoading(true);
