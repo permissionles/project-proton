@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Tooltip from "antd/es/tooltip";
+import { Tooltip } from "antd";
 import { ethers } from "ethers";
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
@@ -32,10 +32,10 @@ const RewardItem: FC<Props> = ({ data }) => {
       customHttpProvider
     );
 
-    const [symbol, decimals, _withdrawableAmount] = await Promise.all([
+    const [symbol, decimals] = await Promise.all([
       tokenContract.symbol(),
       tokenContract.decimals(),
-      stockContract.reward(address, data.id),
+      // stockContract.reward(address, data.id),
     ]);
     setTokenInfo({ symbol, decimals });
     // console.log(_withdrawableAmount.toString(), symbol);
