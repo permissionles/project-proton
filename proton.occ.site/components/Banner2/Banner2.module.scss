@@ -58,7 +58,8 @@
     padding-bottom: 10px;
 
     @media screen and (max-width: $mobileResolution) {
-      font-size: 10px;
+      font-size: 14px;
+      margin: 14px;
     }
   }
 }
