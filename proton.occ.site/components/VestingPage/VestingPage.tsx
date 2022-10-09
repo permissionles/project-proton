@@ -1,6 +1,4 @@
-import ConnectWalletPage from "@components/ConnectWalletPage";
 import { FC, useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
 // import { authAtom } from "src/_state";
 
 const VestingPage: FC = () => {
