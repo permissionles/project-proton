@@ -111,26 +111,27 @@
     .cardsRow {
       display: flex;
       justify-content: space-between;
-      max-width: 680px;
+      max-width: 65%;
       margin: 0 auto;
       margin-top: 4rem;
 
       @media only screen and (max-width: $mobileResolution) {
-        max-width: calc(100vw - 2rem);
+        display: block;
+        max-width: 70%;
         align-items: flex-start;
         margin-top: 2rem;
       }
     }
 
     .stakeCard {
-      background: url("/images/staking/stake-card-bg.png") no-repeat;
+      background: url("/images/staking/duration-bg.png") no-repeat;
       background-size: 100% 100% !important;
       // height: 627px;
       width: 853px;
       // border: 10px solid #ffffff;
       box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.45);
       // border-radius: 48px;
-      margin: 8rem auto 0rem;
+      margin: 4rem auto 0rem;
       padding: 38px;
       position: relative;
       max-width: calc(100vw - 2rem);
@@ -200,6 +201,9 @@
   color: $color-proton;
   font-size: 37px;
   font-weight: 400;
+  @media only screen and (max-width: $mobileResolution) {
+    font-size: 30px;
+  }
 }
 
 .feildTitle {
@@ -213,7 +217,11 @@
   @media only screen and (max-width: 1078px) {
   }
   @media only screen and (max-width: 580px) {
-    text-align: left;
+    // text-align: left;
+  }
+  @media only screen and (max-width: $mobileResolution) {
+    font-size: 30px;
+    margin: 0;
   }
 }
 .maxBtn {
@@ -237,6 +245,9 @@
   margin-bottom: 30px;
   color: white;
   font-size: 37px;
+  @media only screen and (max-width: $mobileResolution) {
+    font-size: 25px;
+  }
   div {
     line-height: 1.3;
   }

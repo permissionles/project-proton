@@ -81,6 +81,9 @@
   font-feature-settings: "tnum", "tnum";
   display: flex;
   font-size: 0;
+  @media only screen and (max-width: $mobileResolution) {
+    display: block;
+  }
 }
 .ant-radio-button-wrapper:not(:first-child)::before {
   position: absolute;
@@ -107,7 +110,7 @@
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
   z-index: 1;
   color: unset;
-  background: url(/images/staking/border.png);
+  background: url(/images/staking/btn-selected-bg.png);
   background-size: 100% 100%;
   border-color: unset;
 }

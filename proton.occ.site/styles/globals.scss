@@ -63,4 +63,8 @@ a {
   transition: all 0.2s linear;
   border: 0px !important;
   margin-right: 4.5%;
+  @media only screen and (max-width: $mobileResolution) {
+    width: 80%;
+    margin: 2rem 2rem 0;
+  }
 }

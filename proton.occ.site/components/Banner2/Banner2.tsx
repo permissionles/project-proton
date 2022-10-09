@@ -7,6 +7,12 @@ const Banner2 = () => {
     <div className={s.container}>
       <div className={s.github}>
         <a
+          href="https://etherscan.io/token/0xd17549214ee159a81f4eaba94c3b01118191c675#code"
+          target="blank"
+        >
+          <button className={s.button}>Read Contract</button>
+        </a>
+        <a
           href="https://github.com/permissionles/project-proton"
           target="blank"
         >
@@ -14,6 +20,7 @@ const Banner2 = () => {
             click here to track @project-proton
           </button>
         </a>
+
         <iframe
           src="https://ghbtns.com/github-btn.html?user=permissionles&repo=project-proton&type=follow&count=true&size=large"
           // frameborder="0"

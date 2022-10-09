@@ -203,7 +203,8 @@ const StakeTokens: FC = () => {
           <Radio.Group>
             {ProtonConfig.contract.proton.staking.package.map((item, i) => (
               <Radio.Button value={`${item.month}-${item.apr}`} key={i}>
-                {item.month} Months <br /> ({item.apr}% APR)
+                {item.month} Months <br />{" "}
+                <div className="value">({item.apr}% APR)</div>
               </Radio.Button>
             ))}
           </Radio.Group>

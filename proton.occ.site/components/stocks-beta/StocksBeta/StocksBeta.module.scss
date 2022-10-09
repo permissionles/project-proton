@@ -1,9 +1,12 @@
 @import "/styles/variables.scss";
 
 .container {
-  margin-top: 20rem;
+  margin-top: 7rem;
   overflow: hidden;
   margin-bottom: 2rem;
+  @media screen and (max-width: $mobileResolution) {
+    margin-top: 24rem;
+  }
 
   .banner {
     position: relative;
