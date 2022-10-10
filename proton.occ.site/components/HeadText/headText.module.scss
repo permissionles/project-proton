@@ -29,4 +29,10 @@
   @media screen and (max-width: $mobileResolution) {
     font-size: 15px;
   }
+
+  .readContract {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

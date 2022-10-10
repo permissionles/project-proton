@@ -24,6 +24,14 @@ const HeadText: FC<HeadTextProps> = () => (
         </a>
       </div>
     </div>
+    <div className={styles.readContract}>
+      <a
+        href="https://etherscan.io/token/0xd17549214ee159a81f4eaba94c3b01118191c675"
+        target="blank"
+      >
+        <button className={styles.button}>Read Contract</button>
+      </a>
+    </div>
   </div>
 );
 
