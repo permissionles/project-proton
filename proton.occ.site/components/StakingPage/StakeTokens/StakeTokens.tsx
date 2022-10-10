@@ -166,65 +166,69 @@ const StakeTokens: FC = () => {
 
   return (
     <div className={`${s.stakeCard}`}>
-      <div className={`${s.textCenter} f22 f-lg fm-26 blue fw400`}>
-        STOCK YOUR ${ProtonConfig.tokenName}
+      <div className={s.cardWrapper}>
+        <Form
+          form={form}
+          layout="vertical"
+          className="stakeForm"
+          scrollToFirstError={true}
+          onFieldsChange={() => {
+            expectedReturn();
+          }}
+          onFinish={onFinish}
+        >
+          <div className={s.stake}>
+            <div className={`${s.textCenter} f22 f-lg fm-26 blue fw400`}>
+              STOCK YOUR ${ProtonConfig.tokenName}
+            </div>
+            <Form.Item required name="amount" className="theme-input-number">
+              <Input
+                value={userAmount}
+                placeholder="Amount"
+                onChange={(value) => {
+                  const fieldValue = +value.target.value;
+                  if (isNaN(fieldValue)) return;
+                  setUserAmount(fieldValue);
+                  form.setFieldsValue({
+                    ...form.getFieldsValue(),
+                    amount: fieldValue,
+                  });
+                }}
+              />
+
+              {/* <div className={s.maxBtn}>MAX</div> */}
+            </Form.Item>
+          </div>
+          <div className={s.duration}>
+            <p className={`${s.feildTitle} f22 blue fm-26`}>DURATION</p>
+            <Form.Item name="duration">
+              <Radio.Group>
+                {ProtonConfig.contract.proton.staking.package.map((item, i) => (
+                  <Radio.Button value={`${item.month}-${item.apr}`} key={i}>
+                    {item.month} Months <br />{" "}
+                    <div className="value">({item.apr}% APR)</div>
+                  </Radio.Button>
+                ))}
+              </Radio.Group>
+            </Form.Item>
+
+            <div className={`${s.rewards}  text-center `}>
+              <div className={s.heading}>Expected stocking reward</div>
+              <div className="value">
+                {rewardValue} {ProtonConfig.tokenName}
+              </div>
+            </div>
+
+            <Form.Item className="text-center">
+              <div className="btnWrapper m0-auto">
+                <Button htmlType="submit" loading={isLoading}>
+                  STOCK
+                </Button>
+              </div>
+            </Form.Item>
+          </div>
+        </Form>
       </div>
-
-      <Form
-        form={form}
-        layout="vertical"
-        className="stakeForm"
-        scrollToFirstError={true}
-        onFieldsChange={() => {
-          expectedReturn();
-        }}
-        onFinish={onFinish}
-      >
-        <Form.Item required name="amount" className="theme-input-number">
-          <Input
-            value={userAmount}
-            placeholder="Amount"
-            onChange={(value) => {
-              const fieldValue = +value.target.value;
-              if (isNaN(fieldValue)) return;
-              setUserAmount(fieldValue);
-              form.setFieldsValue({
-                ...form.getFieldsValue(),
-                amount: fieldValue,
-              });
-            }}
-          />
-
-          {/* <div className={s.maxBtn}>MAX</div> */}
-        </Form.Item>
-
-        <p className={`${s.feildTitle} f22 blue fm-26`}>DURATION</p>
-        <Form.Item name="duration">
-          <Radio.Group>
-            {ProtonConfig.contract.proton.staking.package.map((item, i) => (
-              <Radio.Button value={`${item.month}-${item.apr}`} key={i}>
-                {item.month} Months <br />{" "}
-                <div className="value">({item.apr}% APR)</div>
-              </Radio.Button>
-            ))}
-          </Radio.Group>
-        </Form.Item>
-
-        <div className={`${s.rewards}  text-center `}>
-          <div className={s.heading}>Expected stocking reward</div>
-          <div className="value">
-            {rewardValue} {ProtonConfig.tokenName}
-          </div>
-        </div>
-
-        <Form.Item className="text-center">
-          <div className="btnWrapper m0-auto">
-            <Button htmlType="submit" loading={isLoading}>
-              STOCK
-            </Button>
-          </div>
-        </Form.Item>
-      </Form>
     </div>
   );
 };

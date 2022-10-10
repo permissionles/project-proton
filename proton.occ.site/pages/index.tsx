@@ -20,7 +20,7 @@ const Home: NextPage = (props: any) => {
       </Head>
       <Banner />
       <Banner2 />
-      <StocksBeta />
+      {/* <StocksBeta /> */}
       <AText />
       <StakingPage />
       <Async />

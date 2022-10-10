@@ -6,11 +6,11 @@ export const PRTNStaking = {
   package: [
     {
       month: 1,
-      apr: 1,
+      apr: 12,
     },
     {
       month: 4,
-      apr: 6,
+      apr: 18,
     },
     {
       month: 12,
