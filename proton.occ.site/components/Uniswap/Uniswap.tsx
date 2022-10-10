@@ -17,7 +17,7 @@ const Uniswap: FC = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.iframe}>
+      {/* <div className={s.iframe}>
         <Iframe
           url="https://network.occ.site/#/room/#project-proton:matrix.org"
           // height="800px"
@@ -25,7 +25,7 @@ const Uniswap: FC = () => {
 
           position="relative"
         />
-      </div>
+      </div> */}
       <div>
         <div className="Uniswap">
           <SwapWidget
