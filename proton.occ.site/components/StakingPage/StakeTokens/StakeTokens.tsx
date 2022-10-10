@@ -7,6 +7,7 @@ import { FC, useEffect, useState } from "react";
 import s from "../StakingPage.module.scss";
 import { useAccount, useContractWrite, useProvider } from "wagmi";
 import { ethers, Signer } from "ethers";
+import WalletConnect from "@components/common/WalletConnect";
 
 const StakeTokens: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -221,9 +222,13 @@ const StakeTokens: FC = () => {
 
             <Form.Item className="text-center">
               <div className="btnWrapper m0-auto">
-                <Button htmlType="submit" loading={isLoading}>
-                  STOCK
-                </Button>
+                {isConnected ? (
+                  <Button htmlType="submit" loading={isLoading}>
+                    STOCK
+                  </Button>
+                ) : (
+                  <WalletConnect />
+                )}
               </div>
             </Form.Item>
           </div>
