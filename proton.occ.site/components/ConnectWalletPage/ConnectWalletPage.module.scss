@@ -1,0 +1,55 @@
+@import "/styles/variables.scss";
+.compWrapper {
+  background: url("/images/connect-wallet-bg.jpg") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 1.5rem;
+  background-position: center;
+  min-height: 600px;
+
+  .connectWalletCard {
+    width: 80%;
+    max-width: 1100px;
+    height: calc(100vh - 250px);
+    background: url("/images/cw-bg.png") no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    border: 10px solid #ffffff;
+    border: 1px solid #3bf3ff;
+    background: rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(37px);
+    border-radius: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    // max-height: 600px;
+    min-height: 500px;
+    @media only screen and (max-width: $mobileResolution) {
+      height: 370px;
+      padding: 1rem;
+    }
+
+    button {
+      background: #000;
+      color: #fff;
+      box-shadow: 0px 4px 23px #3bf3ff;
+    }
+
+    button {
+      padding: 18px 49px 18px;
+    }
+
+    p {
+      margin-top: 12px;
+      @media only screen and (max-width: $mobileResolution) {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

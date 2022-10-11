@@ -1,0 +1,228 @@
+@import "/styles/variables.scss";
+
+.dataCardWrapper {
+  font-family: $font-proton;
+  flex-basis: 30%;
+  margin: 1%;
+  margin-bottom: 5%;
+  @media only screen and (max-width: 1078px) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 1078px) {
+    margin-bottom: 1.3rem;
+    display: flex;
+    justify-content: center;
+  }
+  @media only screen and (max-width: $mobileResolution) {
+    margin-bottom: 0;
+  }
+  &.small {
+    @media only screen and (max-width: $mobileResolution) {
+      flex-basis: 31%;
+    }
+    .dataCard {
+      width: 250px;
+      height: 100%;
+      border-radius: 6px;
+      // border-radius: 25px;
+      border: unset;
+      padding: 17px 13px 11px;
+      // background: url("/images/small-card-bg.png") no-repeat center center;
+      // background: url(/images/small-card-bg.png),background: url("/images/blue-card-small.jpg") no-repeat center center;
+      //
+      // rgba(0, 0, 0, 1) no-repeat center center !important;
+      // background-size: 100% 100%;
+      text-align: center;
+
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: column;
+      min-height: unset;
+      @media only screen and (max-width: $mobileResolution) {
+        width: 100%;
+        padding: 17px 1px 11px;
+        border-radius: 0px;
+      }
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+        padding: 13px 1px 8px;
+      }
+      @media only screen and (max-width: 471px) {
+        min-height: 96px;
+      }
+      @media only screen and (max-width: 377px) {
+        min-height: 110px;
+      }
+
+      // .num,
+      // .title {
+      //   font-size: 21px;
+      //   font-family: $font-proton !important;
+      //   color: #000;
+      //   line-height: 30px;
+      //   @media only screen and (max-width: $mobileResolution) {
+      //     font-size: 16px;
+      //     line-height: 21px;
+      //   }
+      // }
+
+      .num {
+        font-size: 20px;
+        line-height: 1.2;
+        margin-top: 8px;
+        @media only screen and (max-width: $mobileResolution) {
+          font-size: 28px;
+        }
+      }
+
+      .title {
+        font-size: 16px;
+        font-family: $font-proton !important;
+        color: #fff;
+        line-height: 20px;
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 700;
+        @media only screen and (max-width: $mobileResolution) {
+          font-size: 20px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+
+  &:first-of-type {
+    .dataCard {
+      background: url("/images/staking/big-card-bg1.png") no-repeat center
+        center;
+      background-size: 100% 100%;
+
+      @media only screen and (max-width: $mobileResolution) {
+        background: url("/images/staking/big-card-bg-mob.png") no-repeat center
+          center;
+        background-size: 100% 100%;
+      }
+    }
+    &.small .dataCard {
+      background: url("/images/staking/small-card-bg.png") no-repeat center
+        center;
+      background: url("/images/staking/small-card-bg.png"),
+        rgba(0, 0, 0, 0.77) no-repeat center center;
+      background-size: 100% 100%;
+    }
+  }
+  &:first-of-type,
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    &.small .dataCard {
+      background: url("/images/staking/small-card-bg.png"),
+        #000 no-repeat center center;
+      background-size: 100% 100%;
+      padding: 1.5rem 0;
+    }
+  }
+  .dataCard {
+    background: url("/images/staking/small-card-bg.png") no-repeat center center;
+    background: url("/images/staking/big-card-bg.png") no-repeat center center;
+
+    background-size: 100% 100%;
+    // border-radius: 14px;
+    padding: 23px;
+    // border: 5px solid #ffffff;
+    box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.45);
+    // border-radius: 25px;
+    display: inline-block;
+    min-height: 203px;
+    // background: rgba(0, 0, 0, 0.27);
+    opacity: 0.9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1077px) {
+      width: 100%;
+      min-height: unset;
+      text-align: center;
+      margin-bottom: 2rem;
+      max-width: 400px;
+      background: url("/images/staking/big-card-bg-mob.png") no-repeat center
+        center;
+      background-size: 100% 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .num {
+      font-size: 31px; //80px
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      text-align: center;
+      font-family: $font-proton;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.01em;
+      color: #33e9e9;
+      @media only screen and (max-width: $mobileResolution) {
+        font-size: 24px;
+      }
+    }
+    .title {
+      font-size: 1.25rem; //20px
+      color: $color-proton;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      justify-content: center;
+      margin: 12px 0;
+      text-align: center;
+      // margin-top: 16px;
+      // line-height: 56px;
+      line-height: 1.2;
+      @media only screen and (max-width: 1024px) {
+        text-align: center;
+        margin: 4px auto 2px;
+        width: 100%;
+        display: block;
+        line-height: 46px;
+      }
+
+      &:last-of-type {
+        @media only screen and (max-width: $mobileResolution) {
+          margin-top: 0;
+        }
+      }
+
+      &:nth-of-type(3) {
+        // margin-top: 23px;
+      }
+    }
+  }
+}
+
+.approxIcon {
+  width: 16px;
+  height: 20px;
+  position: relative;
+  margin: 0 12px;
+  // transform: translateY(-14px);
+  display: inline-block;
+
+  @media only screen and (max-width: 1025px) {
+    transform: translateY(3px);
+  }
+}
+
+.claimBtn {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.small {
+  text-align: center;
+  margin-top: -13px;
+  letter-spacing: 4px;
+}

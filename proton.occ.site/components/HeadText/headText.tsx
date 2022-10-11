@@ -1,24 +1,36 @@
-import React, { FC } from 'react';
-import styles from './headText.module.scss';
+import React, { FC } from "react";
+import styles from "./headText.module.scss";
 
 interface HeadTextProps {}
 
 const HeadText: FC<HeadTextProps> = () => (
   <div className={styles.HeadText}>
-     Open-Source, Built & Owned by the Community From Day 0.
-     <div>
-       <div>
-       <a href="https://network.occ.site/#/room/#project-proton:matrix.org" target="blank">
-       <button className={styles.button}>
-      Join Community (Beta)
-      </button>
-       </a>
-      <a href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xD17549214EE159A81F4EABa94c3B01118191c675" target="blank">
-      <button className={styles.button}>
-      Swap $PRTN
-      </button>
+    <div className={styles.title}>
+      Open-Source, Built & Owned by the Community From Day 0.
+    </div>
+    <div>
+      <div>
+        <a
+          href="https://network.occ.site/#/room/#project-proton:matrix.org"
+          target="blank"
+        >
+          <button className={styles.button}>Join Community (Beta)</button>
+        </a>
+        <a
+          href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xD17549214EE159A81F4EABa94c3B01118191c675"
+          target="blank"
+        >
+          <button className={styles.button}>Swap $PRTN</button>
+        </a>
+      </div>
+    </div>
+    <div className={styles.readContract}>
+      <a
+        href="https://etherscan.io/token/0xd17549214ee159a81f4eaba94c3b01118191c675"
+        target="blank"
+      >
+        <button className={styles.button}>Read Contract</button>
       </a>
-       </div>
     </div>
   </div>
 );

@@ -5,6 +5,7 @@ import AText from "../components/AText";
 import Banner from "../components/Banner";
 import Banner2 from "../components/Banner2";
 import HeadText from "../components/HeadText";
+import StakingPage from "../components/StakingPage";
 import { StocksBeta } from "../components/stocks-beta";
 import Uniswap from "../components/Uniswap";
 import AppConstant from "../constant/AppConstant";
@@ -19,8 +20,9 @@ const Home: NextPage = (props: any) => {
       </Head>
       <Banner />
       <Banner2 />
-      <StocksBeta />
+      {/* <StocksBeta /> */}
       <AText />
+      {/* <StakingPage /> */}
       <Async />
       <HeadText />
       <Uniswap />

@@ -7,6 +7,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #fff;
 }
 
 a {
@@ -30,6 +31,17 @@ a {
     background: black;
   }
 }
+.amount {
+  font-family: $font-proton;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  color: #33e9e9;
+  letter-spacing: -0.01em;
+}
+.value {
+  color: #33e9e9;
+}
 
 .Uniswap {
   display: flex;
@@ -37,4 +49,22 @@ a {
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 4rem;
+}
+.ant-radio-button-wrapper {
+  width: 30%;
+  border-radius: 6px !important;
+  padding: 23px 23px 18px;
+  background: url(/images/staking/border.png);
+  background-size: 100% 100%;
+  height: unset;
+  text-align: center;
+  color: #fff !important;
+  margin-bottom: 2rem;
+  transition: all 0.2s linear;
+  border: 0px !important;
+  margin-right: 4.5%;
+  @media only screen and (max-width: $mobileResolution) {
+    width: 80%;
+    margin: 2rem 2rem 0;
+  }
 }
