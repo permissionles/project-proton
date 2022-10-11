@@ -39,8 +39,8 @@ const UserStakes: FC = () => {
   }, []);
 
   return (
-    <div className={s.myStakes}>
-      <p className={`${s.feildTitle} f22 blue fm-26`}>MY STAKES</p>
+    <div className={`${s.myStakes} ${s.compWrapper} ${s.container}`}>
+      <p className={`${s.feildTitle} f22 blue fm-26`}>MY STOCKS</p>
       <div className={s.stakeCardsRow}>
         {isLoading && <Spin />}
         {userStakes.map((item, i) => (

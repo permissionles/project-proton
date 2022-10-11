@@ -1,0 +1,20 @@
+.container {
+  .feildTitle {
+    margin-bottom: 30px;
+    text-align: center;
+    text-align: center;
+    font-family: $font-proton;
+    color: $color-proton;
+    font-size: 37px;
+    font-weight: 400;
+    @media only screen and (max-width: 1078px) {
+    }
+    @media only screen and (max-width: 580px) {
+      // text-align: left;
+    }
+    @media only screen and (max-width: $mobileResolution) {
+      font-size: 30px;
+      margin: 0;
+    }
+  }
+}

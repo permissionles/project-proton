@@ -94,11 +94,11 @@
 
   &:first-of-type {
     .dataCard {
-      background: url("/images/big-card-bg1.png") no-repeat center center;
+      background: url(/images/staking/border.png) no-repeat center center;
       background-size: 100% 100%;
 
       @media only screen and (max-width: $mobileResolution) {
-        background: url("/images/big-card-bg-mob.png") no-repeat center center;
+        // background: url("/images/big-card-bg-mob.png") no-repeat center center;
         background-size: 100% 100%;
       }
     }
@@ -119,7 +119,7 @@
   }
   .dataCard {
     background: url("/images/small-card-bg.png") no-repeat center center;
-    background: url("/images/big-card-bg.png") no-repeat center center;
+    background: url("/images/staking/border.png") no-repeat center center;
 
     background-size: 100% 100%;
     // border-radius: 14px;
@@ -142,7 +142,7 @@
       text-align: center;
       margin-bottom: 2rem;
       max-width: 400px;
-      background: url("/images/big-card-bg-mob.png") no-repeat center center;
+      // background: url("/images/big-card-bg-mob.png") no-repeat center center;
       background-size: 100% 100%;
     }
 
@@ -151,17 +151,19 @@
     }
 
     .num {
-      font-size: 31px; //80px
+      font-size: 1.4rem; //80px
       line-height: 1.2;
       margin-bottom: 0.6rem;
       text-align: center;
+      font-weight: 600;
+      color: #18f6f6;
       @media only screen and (max-width: $mobileResolution) {
-        font-size: 24px;
+        font-size: 1.2rem;
       }
     }
     .title {
       font-size: 1.25rem; //20px
-      color: $primary;
+      color: #fff;
       line-height: 1;
       display: flex;
       align-items: center;
@@ -215,4 +217,5 @@
   text-align: center;
   margin-top: -13px;
   letter-spacing: 4px;
+  color: #18f6f6;
 }

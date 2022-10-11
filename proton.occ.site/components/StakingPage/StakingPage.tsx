@@ -1,4 +1,5 @@
 import BlueCard from "@components/BlueCard";
+import WalletConnect from "@components/common/WalletConnect";
 import ProtonConfig from "@config/ProtonConfig";
 import { Form } from "antd";
 import { ethers } from "ethers";
@@ -74,6 +75,9 @@ const StakingPage: FC = () => {
               height={500}
               width={1000}
             />
+          </div>
+          <div className={s.wallet}>
+            <WalletConnect />
           </div>
 
           <div className={`${s.cardsRow}`}>

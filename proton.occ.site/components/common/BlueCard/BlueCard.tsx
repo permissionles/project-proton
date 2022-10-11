@@ -26,7 +26,7 @@ const BlueCard: FC<Props> = ({
   krlAmount = "",
   claimButton = false,
   itemIndex,
-  // children,
+  children,
 }) => {
   return (
     <>
@@ -53,7 +53,7 @@ const BlueCard: FC<Props> = ({
               {textLine4 && <p className={`${s.title} f-mija`}>{textLine4}</p>}
             </div>
 
-            {/* {children} */}
+            {children}
           </div>
         </div>
       )}

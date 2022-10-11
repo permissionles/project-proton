@@ -22,7 +22,7 @@ const Home: NextPage = (props: any) => {
       <Banner2 />
       {/* <StocksBeta /> */}
       <AText />
-      {/* <StakingPage /> */}
+      <StakingPage />
       <Async />
       <HeadText />
       <Uniswap />

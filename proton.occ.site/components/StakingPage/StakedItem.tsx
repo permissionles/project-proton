@@ -1,13 +1,13 @@
 import BlueCard from "@components/common/BlueCard";
 import ProtonConfig from "@config/ProtonConfig";
 import { Button, notification } from "antd";
-import { ethers } from "ethers";
+import { ethers, Signer } from "ethers";
 import { round } from "mathjs";
 import moment from "moment";
 import { FC, useEffect, useState } from "react";
 import { StakingService } from "services";
 import Misc from "utility/Misc";
-import { useAccount } from "wagmi";
+import { useAccount, useProvider } from "wagmi";
 import s from "./StakingPage.module.scss";
 
 export interface StakingDataInterface {
@@ -31,10 +31,26 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   const [currentReward, setCurrentReward] = useState(0);
   // const auth = useRecoilValue(authAtom);
   const [isLoading, setIsLoading] = useState(false);
-  const { address, isConnected } = useAccount();
+  // const { address, isConnected } = useAccount();
+  const { address, isConnected, connector } = useAccount();
+
+  const [signer, setSigner] = useState<Signer | null>(null);
+  const provider = useProvider();
 
   const stakingContract = ProtonConfig.contract.proton.staking;
   console.log("stakingData.amount.toString()", stakingData.amount.toString());
+
+  // get signer
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await connector?.getSigner();
+        setSigner(res);
+      } catch (e) {
+        setSigner(null);
+      }
+    })();
+  }, [connector]);
   const tokenStaked = () => {
     return round(
       +ethers.utils.formatUnits(stakingData.amount.toString(), "ether")
@@ -62,6 +78,7 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
     const currentTime = moment.utc();
     const endTime = moment.unix(+stakingData.endTime.toString());
     const duration = moment.duration(endTime.diff(currentTime));
+    console.log(stakingData.endTime.toString(), "time");
 
     const durationList = [
       {
@@ -127,10 +144,26 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   const processAction = async (isUnstake: boolean) => {
     try {
       setIsLoading(true);
-      await StakingService[isUnstake ? "unStakeToken" : "claimRewards"](
-        itemIndex!!,
-        address!!
+      // await StakingService[isUnstake ? "unStakeToken" : "claimRewards"](
+      //   itemIndex!!,
+      //   address!!
+      // );
+      let contract = new ethers.Contract(
+        ProtonConfig.contract.proton.staking.address,
+        ProtonConfig.contract.proton.staking.abi,
+        signer!!
       );
+
+      let response = null;
+
+      if (isUnstake) {
+        response = await contract.unStake(itemIndex!!);
+      } else {
+        response = await contract.claimRewards(itemIndex!!);
+      }
+
+      await provider.waitForTransaction(response.hash);
+
       getReward();
       notification.success({ message: "Successfully processed" });
       if (onUpdate) {
