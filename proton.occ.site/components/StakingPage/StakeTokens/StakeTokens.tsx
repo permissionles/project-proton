@@ -311,30 +311,32 @@ const StakeTokens: FC = () => {
               </div>
             </div>
             <div className={s.ctas}>
-              <Form.Item className="text-center">
-                <div className="btnWrapper">
-                  {isConnected ? (
-                    <div className={s.approve}>
-                      <Button
-                        onClick={() => {
-                          appoveTokenFunc(form.getFieldValue("amount"));
-                        }}
-                        loading={isApproving}
-                      >
-                        Approve
-                      </Button>
-                      <div className={s.info}>
-                        <p>
-                          Already Approved Token:{" "}
-                          <span>{approvedToken} $PRTN</span>
-                        </p>
+              {isConnected && (
+                <Form.Item className="text-center">
+                  <div className="btnWrapper">
+                    {isConnected ? (
+                      <div className={s.approve}>
+                        <Button
+                          onClick={() => {
+                            appoveTokenFunc(form.getFieldValue("amount"));
+                          }}
+                          loading={isApproving}
+                        >
+                          Approve
+                        </Button>
+                        <div className={s.info}>
+                          <p>
+                            Already Approved Token:{" "}
+                            <span>{approvedToken} $PRTN</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              </Form.Item>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </Form.Item>
+              )}
               <Form.Item className="text-center">
                 <div className="btnWrapper">
                   {isConnected ? (
@@ -346,6 +348,9 @@ const StakeTokens: FC = () => {
                   )}
                 </div>
               </Form.Item>
+            </div>
+            <div className={s.guide}>
+              <p>{`* You need to appove your tokens, before you can stock them :)`}</p>
             </div>
           </div>
         </Form>

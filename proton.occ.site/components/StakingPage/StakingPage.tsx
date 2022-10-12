@@ -78,9 +78,9 @@ const StakingPage: FC = () => {
               width={1000}
             />
           </div>
-          <div className={s.wallet}>
+          {/* <div className={s.wallet}>
             <WalletConnect />
-          </div>
+          </div> */}
 
           <div className={`${s.cardsRow}`}>
             <BlueCard
