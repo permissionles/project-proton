@@ -161,6 +161,7 @@
       justify-content: space-between;
 
       p {
+        font-family: $font-proton;
         font-weight: 600;
         color: #18f6f6;
       }
@@ -169,6 +170,7 @@
       }
     }
     .num {
+      font-family: $font-proton;
       font-weight: 500;
       font-size: 14px;
       line-height: 19px;
@@ -184,6 +186,7 @@
       }
     }
     .title {
+      font-family: $font-proton;
       font-size: 1.25rem; //20px
       color: #fff;
       line-height: 1;
@@ -217,7 +220,8 @@
     .aprAmount {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
+      padding: 0 1rem;
     }
   }
 }
