@@ -388,11 +388,22 @@
             margin-top: 10px;
             font-size: 13px;
             text-align: left;
-
+            @media screen and (max-width: $mobileResolution) {
+              text-align: center;
+            }
             span {
               color: #33e9e9;
               font-weight: bold;
             }
+          }
+        }
+
+        @media screen and (max-width: $mobileResolution) {
+          display: block;
+
+          .info {
+            align-items: center;
+            text-align: center;
           }
         }
       }
