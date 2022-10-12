@@ -38,7 +38,7 @@ const claimRewards = (stakeId: number, from: string) => {
 };
 const rewardsClaimed = () => {
   const contract = getRpcContract();
-  return contract.rewardsClaimed();
+  return contract.getTotalClaimed();
 };
 
 export const getRpcContract = () => {

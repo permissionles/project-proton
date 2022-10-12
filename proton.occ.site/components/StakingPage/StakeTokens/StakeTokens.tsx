@@ -331,7 +331,7 @@ const StakeTokens: FC = () => {
                       </div>
                     </div>
                   ) : (
-                    <WalletConnect />
+                    <></>
                   )}
                 </div>
               </Form.Item>
