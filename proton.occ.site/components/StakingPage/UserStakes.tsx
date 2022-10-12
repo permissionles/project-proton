@@ -50,16 +50,20 @@ const UserStakes: FC = () => {
       <p className={`${s.feildTitle} f22 blue fm-26`}>MY STOCKS</p>
       <div className={s.stakeCardsRow}>
         {isLoading && <Spin />}
-        {userStakes.map((item, i) => (
-          <StakedItem
-            key={i}
-            stakingData={item}
-            itemIndex={item.itemIndex}
-            onUpdate={() => {
-              getUserStakes();
-            }}
-          />
-        ))}
+        {userStakes.length == 0 ? (
+          <>You have no stocks</>
+        ) : (
+          userStakes.map((item, i) => (
+            <StakedItem
+              key={i}
+              stakingData={item}
+              itemIndex={item.itemIndex}
+              onUpdate={() => {
+                getUserStakes();
+              }}
+            />
+          ))
+        )}
       </div>
     </div>
   );
