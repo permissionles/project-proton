@@ -147,15 +147,38 @@
 
     p {
       margin: 0;
+      font-size: 20px;
     }
 
+    .timePeriod {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .stock {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        font-weight: 600;
+        color: #18f6f6;
+      }
+      .reward {
+        font-size: 20px;
+      }
+    }
     .num {
-      font-size: 1.4rem; //80px
-      line-height: 1.2;
-      margin-bottom: 0.6rem;
-      text-align: center;
-      font-weight: 600;
-      color: #18f6f6;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 19px;
+      color: #ffffff;
+      // font-size: 1.4rem; //80px
+      // line-height: 1.2;
+      // margin-bottom: 0.6rem;
+      // text-align: center;
+      // font-weight: 600;
+      // color: #18f6f6;
       @media only screen and (max-width: $mobileResolution) {
         font-size: 1.2rem;
       }
@@ -167,7 +190,7 @@
       display: flex;
       align-items: center;
       font-weight: 400;
-      justify-content: center;
+      justify-content: space-between;
       margin: 12px 0;
       text-align: center;
       // margin-top: 16px;
@@ -191,6 +214,11 @@
         // margin-top: 23px;
       }
     }
+    .aprAmount {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -213,8 +241,16 @@
 }
 
 .small {
-  text-align: center;
-  margin-top: -13px;
-  letter-spacing: 4px;
-  color: #18f6f6;
+  font-family: $font-proton;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+  background: #0a2f2f;
+  border-radius: 4px;
+  padding: 5px 8px;
+  // text-align: center;
+  // margin-top: -13px;
+  // letter-spacing: 4px;
+  // color: #18f6f6;
 }

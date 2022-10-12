@@ -33,24 +33,65 @@ const BlueCard: FC<Props> = ({
       {type === "big" && (
         <div className={`${s.dataCardWrapper} `}>
           <div className={`${s.dataCard}`}>
-            <div>
-              <p className={`${s.num} f-lg `}>{textLine1}</p>
+            <div className={s.timePeriod}>
+              <p className={`${s.num} f-lg `}>{textLine3}</p>
               <div className={`${s.small}`}>STAKED</div>
+            </div>
+            <div className={s.amount}>
               <p className={`${s.title} f-mija`}>
-                {apr}
+                {/* {apr} */}
+                Staked
                 <span className={s.approxIcon}>
-                  <Image
-                    src={"/images/approx.png"}
-                    alt="approximately sign"
-                    // layout="fill"
-                    width={16}
-                    height={20}
-                  />
+                  {/* <Image
+                  src={"/images/approx.png"}
+                  alt="approximately sign"
+                  // layout="fill"
+                  width={16}
+                  height={20}
+                /> */}
                 </span>
-                {krlAmount}
+                {/* {krlAmount} */}
+                Reward
               </p>
-              {textLine3 && <p className={`${s.title} f-mija`}>{textLine3}</p>}
-              {textLine4 && <p className={`${s.title} f-mija`}>{textLine4}</p>}
+            </div>
+            <div className={s.data}>
+              <div className={s.stock}>
+                {textLine3 && (
+                  <p className={`${s.title} f-mija`}>
+                    {textLine1}
+                    <Image
+                      src="/images/plogo.png"
+                      objectFit="contain"
+                      width={35}
+                      height={35}
+                    />
+                  </p>
+                )}
+                <p className={s.reward}>
+                  1300
+                  <Image
+                    src="/images/rewards.png"
+                    objectFit="contain"
+                    width={25}
+                    height={25}
+                  />
+                </p>
+              </div>
+              <div className={s.reward}></div>
+            </div>
+            {/* {textLine4 && <p className={`${s.title} f-mija`}>{textLine4}</p>} */}
+            <div className={s.aprAmount}>
+              <p className={`${s.title} f-mija`}>{apr}</p>
+              <p className={s.approxIcon}>
+                <Image
+                  src={"/images/approx.png"}
+                  alt="approximately sign"
+                  // layout="fill"
+                  width={16}
+                  height={20}
+                />
+              </p>
+              <p> {krlAmount}</p>
             </div>
 
             {children}
