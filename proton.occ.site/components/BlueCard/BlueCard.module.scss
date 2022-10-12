@@ -1,7 +1,7 @@
 @import "/styles/variables.scss";
 
 .dataCardWrapper {
-  font-family: $font-proton;
+  font-family: $font-proton !important;
   flex-basis: 30%;
   margin: 1%;
   margin-bottom: 5%;
@@ -67,6 +67,7 @@
       // }
 
       .num {
+        font-family: $font-proton;
         font-size: 20px;
         line-height: 1.2;
         margin-top: 8px;

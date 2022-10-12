@@ -21,8 +21,8 @@
     text-align: center;
     font-family: $font-proton;
     color: $color-proton;
-    font-size: 37px;
-    font-weight: 400;
+    font-size: 34px;
+    font-weight: bold;
     @media only screen and (max-width: 1078px) {
     }
     @media only screen and (max-width: 580px) {
@@ -136,6 +136,7 @@
     }
 
     .cardsRow {
+      font-family: $font-proton;
       display: flex;
       justify-content: space-between;
       max-width: 65%;
@@ -273,10 +274,42 @@
           text-align: center;
           font-family: $font-proton;
           color: $color-proton;
-          font-size: 37px;
-          font-weight: 400;
+          font-size: 28px;
+          font-weight: bold;
           @media only screen and (max-width: $mobileResolution) {
             font-size: 30px;
+          }
+        }
+
+        .textField {
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .prefixText {
+            margin-right: 24px;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 41px;
+            /* identical to box height */
+
+            text-align: center;
+            letter-spacing: -0.01em;
+
+            color: #595252;
+          }
+        }
+
+        .maxInfo {
+          display: flex;
+          justify-content: center;
+          color: #fff;
+          opacity: 0.8;
+          font-size: 18px;
+
+          span {
+            font-weight: bold;
+            color: $color-proton;
           }
         }
 
@@ -300,7 +333,7 @@
         .rewards {
           margin-bottom: 30px;
           color: white;
-          font-size: 37px;
+          font-size: 32px;
           @media only screen and (max-width: $mobileResolution) {
             font-size: 25px;
           }
@@ -342,6 +375,24 @@
           button {
             width: 80%;
             margin-top: 0.6rem;
+          }
+        }
+      }
+
+      .ctas {
+        display: flex;
+        justify-content: space-evenly;
+        .approve {
+          color: #fff;
+          .info {
+            margin-top: 10px;
+            font-size: 13px;
+            text-align: left;
+
+            span {
+              color: #33e9e9;
+              font-weight: bold;
+            }
           }
         }
       }

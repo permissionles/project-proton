@@ -33,9 +33,9 @@ const BlueCard: FC<Props> = ({
         <div className={`${s.dataCardWrapper} `}>
           <div className={`${s.dataCard}`}>
             <div>
-              <p className={`${s.num} f-lg `}>{textLine1}</p>
+              <p className={`${s.num}`}>{textLine1}</p>
               <div className={`${s.small}`}>STAKED</div>
-              <p className={`${s.title} f-mija`}>
+              <p className={`${s.title}`}>
                 {apr}
                 <span className={s.approxIcon}>
                   <Image
@@ -48,8 +48,8 @@ const BlueCard: FC<Props> = ({
                 </span>
                 {krlAmount}
               </p>
-              {textLine3 && <p className={`${s.title} f-mija`}>{textLine3}</p>}
-              {textLine4 && <p className={`${s.title} f-mija`}>{textLine4}</p>}
+              {textLine3 && <p className={`${s.title} `}>{textLine3}</p>}
+              {textLine4 && <p className={`${s.title} `}>{textLine4}</p>}
             </div>
 
             {/* {children} */}
@@ -59,9 +59,9 @@ const BlueCard: FC<Props> = ({
       {type === "small" && (
         <div className={`${s.dataCardWrapper} ${s.small}`}>
           <div className={`${s.dataCard}`}>
-            <p className={`${s.title} f-mija`}>{textLine1}</p>
-            <p className={`${s.title} f-mija`}>{textLine2}</p>
-            <p className={`${s.num} f-lg `}>{textLine3}</p>
+            <p className={`${s.title} `}>{textLine1}</p>
+            <p className={`${s.title} `}>{textLine2}</p>
+            <p className={`${s.num} `}>{textLine3}</p>
           </div>
         </div>
       )}

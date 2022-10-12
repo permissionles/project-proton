@@ -103,7 +103,7 @@ const StackToken: FC = () => {
         recklesslySetUnpreparedArgs: [amountToUnStake],
       });
       await response.wait();
-      notification.success({ message: "Successfully unstaked" });
+      notification.success({ message: "Successfully unstocked" });
       getUserStacked();
     } catch (error) {
     } finally {

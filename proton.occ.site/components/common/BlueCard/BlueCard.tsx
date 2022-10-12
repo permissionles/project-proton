@@ -60,7 +60,6 @@ const BlueCard: FC<Props> = ({
       {type === "small" && (
         <div className={`${s.dataCardWrapper} ${s.small}`}>
           <div className={`${s.dataCard}`}>
-            <p className={`${s.title} f-mija`}>{textLine1}</p>
             <p className={`${s.title} f-mija`}>{textLine2}</p>
             <p className={`${s.num} f-lg `}>{textLine3}</p>
           </div>

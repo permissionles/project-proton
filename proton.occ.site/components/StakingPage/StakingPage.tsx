@@ -36,6 +36,7 @@ const StakingPage: FC = () => {
           totalStaked: round(response, 2),
         };
       });
+      console.log("Nishank getTotalTokenStaked: ", response);
     } catch (error) {
       console.log(error, "staked");
     }
@@ -44,6 +45,7 @@ const StakingPage: FC = () => {
   const getTotalRewardsClaimed = async () => {
     try {
       let response = await StakingService.rewardsClaimed();
+      console.log("reward-1", response);
       response = ethers.utils.formatUnits(response, "ether");
 
       setTokenData((value: any) => {
@@ -84,14 +86,14 @@ const StakingPage: FC = () => {
             <BlueCard
               textLine1="Overall "
               textLine2={`Stocked ${ProtonConfig.tokenName}`}
-              textLine3={`43234`}
+              textLine3={tokenData.totalStaked}
               type="small"
             />
 
             <BlueCard
               textLine1="Overall Stocking"
               textLine2="Rewards Generated"
-              textLine3={`0.004`}
+              textLine3={tokenData.totalRewardsClaimed}
               type="small"
             />
 
@@ -99,7 +101,7 @@ const StakingPage: FC = () => {
               textLine1={`${ProtonConfig.tokenName}`}
               textLine2="Price"
               type="small"
-              textLine3={`0.004335`}
+              textLine3={`$0.004335`}
             />
           </div>
 

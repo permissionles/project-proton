@@ -1,8 +1,8 @@
 export const PRTNStaking = {
   address:
     process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
-      ? "0xB1A4740EdBC01396C89823315Fd43D0001347B74"
-      : "0xB1A4740EdBC01396C89823315Fd43D0001347B74",
+      ? "0x53Cb95D0FE76E88C7283325dF7c9ce1D2A3D6855"
+      : "0x53Cb95D0FE76E88C7283325dF7c9ce1D2A3D6855",
   package: [
     {
       month: 1,
@@ -19,13 +19,7 @@ export const PRTNStaking = {
   ],
 
   abi: [
-    {
-      inputs: [
-        { internalType: "contract IERC20", name: "add_", type: "address" },
-      ],
-      stateMutability: "nonpayable",
-      type: "constructor",
-    },
+    { inputs: [], stateMutability: "nonpayable", type: "constructor" },
     {
       anonymous: false,
       inputs: [
@@ -37,6 +31,51 @@ export const PRTNStaking = {
         },
       ],
       name: "APYSet",
+      type: "event",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: "address",
+          name: "previousAdmin",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "address",
+          name: "newAdmin",
+          type: "address",
+        },
+      ],
+      name: "AdminChanged",
+      type: "event",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "beacon",
+          type: "address",
+        },
+      ],
+      name: "BeaconUpgraded",
+      type: "event",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: false,
+          internalType: "uint8",
+          name: "version",
+          type: "uint8",
+        },
+      ],
+      name: "Initialized",
       type: "event",
     },
     {
@@ -111,6 +150,19 @@ export const PRTNStaking = {
         },
       ],
       name: "StakingUpdate",
+      type: "event",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "implementation",
+          type: "address",
+        },
+      ],
+      name: "Upgraded",
       type: "event",
     },
     {
@@ -257,19 +309,32 @@ export const PRTNStaking = {
     },
     {
       inputs: [],
+      name: "getTotalStaked",
+      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        { internalType: "contract IERC20", name: "add_", type: "address" },
+      ],
+      name: "initialize",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [],
       name: "owner",
       outputs: [{ internalType: "address", name: "", type: "address" }],
       stateMutability: "view",
       type: "function",
     },
     {
-      inputs: [
-        { internalType: "uint256", name: "poolId", type: "uint256" },
-        { internalType: "bool", name: "status", type: "bool" },
-      ],
-      name: "pausePool",
-      outputs: [],
-      stateMutability: "nonpayable",
+      inputs: [],
+      name: "proxiableUUID",
+      outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
+      stateMutability: "view",
       type: "function",
     },
     {
@@ -308,6 +373,16 @@ export const PRTNStaking = {
       type: "function",
     },
     {
+      inputs: [
+        { internalType: "uint256", name: "poolId", type: "uint256" },
+        { internalType: "bool", name: "status", type: "bool" },
+      ],
+      name: "startPool",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
       inputs: [],
       name: "token",
       outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
@@ -326,6 +401,25 @@ export const PRTNStaking = {
       name: "unStake",
       outputs: [],
       stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        { internalType: "address", name: "newImplementation", type: "address" },
+      ],
+      name: "upgradeTo",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        { internalType: "address", name: "newImplementation", type: "address" },
+        { internalType: "bytes", name: "data", type: "bytes" },
+      ],
+      name: "upgradeToAndCall",
+      outputs: [],
+      stateMutability: "payable",
       type: "function",
     },
     {
