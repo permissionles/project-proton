@@ -15,19 +15,16 @@ const ProtonConfig = {
     genericABI,
   },
   RPC: isDevelopment
-    ? "https://matic-testnet-archive-rpc.bwarelabs.com"
-    : "https://matic-testnet-archive-rpc.bwarelabs.com",
+    ? "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+    : "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
 
-  chainId: isDevelopment ? 80001 : 137,
+  chainId: isDevelopment ? 5 : 5,
   networkList: {
     1: {
       name: "Ethereum",
     },
-    137: {
-      name: "Polygon Mainet",
-    },
-    80001: {
-      name: "Polygon Testnet",
+    5: {
+      name: "Goeril Testnet",
     },
   },
   mongoUri: "",

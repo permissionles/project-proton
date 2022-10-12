@@ -15,6 +15,11 @@ const UserStakes: FC = () => {
   const getUserStakes = async () => {
     try {
       setIsLoading(true);
+      console.log("Get User Stakes For ", address);
+
+      // let myStakes = await StakingService.getStakes(address!);
+      // console.log("My Stakes: ", myStakes);
+
       let tokenStakedCollection: StakingDataInterface[] =
         await StakingService.getStakes(address!!);
 
@@ -24,11 +29,13 @@ const UserStakes: FC = () => {
           itemIndex: i,
         };
       });
+      console.log("Token Staked Collection: ", tokenStakedCollection);
       const nonCollectedStakes: StakingDataInterface[] =
         tokenStakedCollection.filter((item) => !item.collected);
       console.log("stakes", tokenStakedCollection);
       setUserStakes(nonCollectedStakes);
     } catch (error) {
+      console.log("Error User Stakes: ", error);
     } finally {
       setIsLoading(false);
     }

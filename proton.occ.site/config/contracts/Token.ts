@@ -1,6 +1,6 @@
 export const PRTNToken = {
   address:
     process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
-      ? "0x54806ff16f380472ae6033a0e17a304a4ecb25bf"
-      : "0x54806ff16f380472ae6033a0e17a304a4ecb25bf",
+      ? "0xd9fB36E97d7cE52a0a78479901b12f9A0B978cC9"
+      : "0xd9fB36E97d7cE52a0a78479901b12f9A0B978cC9",
 };

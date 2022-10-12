@@ -1,8 +1,8 @@
 export const PRTNStaking = {
   address:
     process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
-      ? "0xE064E69A6ed323044A27435646443Ca10A39643C"
-      : "0xE064E69A6ed323044A27435646443Ca10A39643C",
+      ? "0xB1A4740EdBC01396C89823315Fd43D0001347B74"
+      : "0xB1A4740EdBC01396C89823315Fd43D0001347B74",
   package: [
     {
       month: 1,
