@@ -401,23 +401,62 @@ const StockWidget: FC = () => {
           <div className={s.stocks}>
             <div className={s.card}>
               <div className={s.row}>
-                <div>Stocked</div>
-                <div>20,000 PRTN</div>
+                <span>Stocked</span>
+                <span>20,000 PRTN</span>
               </div>
               <div className={s.row}>
-                <div>Reward</div>
-                <div>1300 PRTN</div>
+                <span>Reward</span>
+                <span>1300 PRTN</span>
               </div>
               <div className={s.row}>
-                <div>
-                  <Button type="ghost" className={s.claim}>
-                    Claim
-                  </Button>
+                <div className={s.buttons}>
+                  <div>
+                    <Button type="ghost" className="claim btn1">
+                      Claim
+                    </Button>
+                  </div>
+                  <div>
+                    <Button type="ghost" className="claim">
+                      Withdraw
+                    </Button>
+                  </div>
                 </div>
-                <div>20,000 PRTN</div>
               </div>
             </div>
-            <div className={s.card}>Card</div>
+            <div className={s.card}>
+              <div className={s.row}>
+                <span>Stocked</span>
+                <span>20,000 PRTN</span>
+              </div>
+              <div className={s.row}>
+                <span>Reward</span>
+                <span>1300 PRTN</span>
+              </div>
+              <div className={s.row}>
+                <div className={s.buttons}>
+                  <div>
+                    <Button type="ghost" className="claim btn1">
+                      Claim
+                    </Button>
+                  </div>
+                  <div>
+                    <Button type="ghost" className="claim">
+                      Withdraw
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className={s.card}>
+              <div className={s.row}>
+                <span>Staked</span>
+                <span>20,000 PRTN</span>
+              </div>
+              <div className={s.row}>
+                <span>Reward</span>
+                <span>1300 PRTN</span>
+              </div>
+            </div> */}
           </div>
           <div className={s.viewMore}>View More</div>
         </div>

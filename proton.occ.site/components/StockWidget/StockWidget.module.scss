@@ -20,6 +20,7 @@
       .title {
         font-weight: 700;
         font-size: 18px;
+        font-family: "Sansation";
       }
 
       .protonPrice {
@@ -141,7 +142,7 @@
     padding: 10px;
     margin-top: 3px;
     width: 312px;
-    height: 239px;
+    // height: 239px;
     background: #1e1e1e;
     border: 0.841791px solid #0e0e0e;
     backdrop-filter: blur(1.68358px);
@@ -159,18 +160,18 @@
       .card {
         padding: 10px;
         width: 290px;
-        height: 86px;
+        // height: 86px;
         background: #2e2e2e;
         border-radius: 10px;
-        margin-bottom: 2px;
+        margin-bottom: 10px;
 
         .row {
           display: flex;
           justify-content: space-between;
 
-          .claim {
-            height: 18px;
-            width: 68px;
+          .buttons {
+            display: flex;
+            margin-top: 1rem;
           }
         }
       }
