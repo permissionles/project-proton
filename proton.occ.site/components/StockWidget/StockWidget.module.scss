@@ -5,6 +5,10 @@
   justify-content: center;
   align-items: center;
   width: 312px;
+  button {
+    color: #000 !important;
+    font-size: 0.8rem;
+  }
 
   .stockTokens {
     padding: 10px 10px;
@@ -127,9 +131,15 @@
       margin-top: 22px;
       display: flex;
       justify-content: space-between;
-
+      > div {
+        width: 50%;
+        padding: 0 5px;
+        button {
+          width: 100%;
+        }
+      }
       .approveBtn {
-        width: 40%;
+        // width: 40%;
       }
     }
 

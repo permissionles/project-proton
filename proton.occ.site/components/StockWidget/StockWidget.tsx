@@ -18,10 +18,12 @@ import WalletConnect from "@components/common/WalletConnect";
 import { ethers, Signer } from "ethers";
 import { MiscService } from "services";
 import ProtonConfig from "@config/ProtonConfig";
-import math from "mathjs";
+import math, { round } from "mathjs";
 import UserStakes from "@components/StakingPage/UserStakes";
 
 const StockWidget: FC = () => {
+  const stakingContract = ProtonConfig.contract.proton.staking;
+
   //FORM
   const [form] = Form.useForm();
   // Select Duration
@@ -42,6 +44,7 @@ const StockWidget: FC = () => {
   const [signer, setSigner] = useState<Signer | null>(null);
   const provider = useProvider();
   const { address, isConnected, connector } = useAccount();
+  const [isInitialzed, setIsInitialzed] = useState(false);
 
   //LOADERS
   const [isApproving, setIsApproving] = useState(false);
@@ -130,39 +133,55 @@ const StockWidget: FC = () => {
     }
   };
 
+  const getAPR = (month: string) => {
+    return (
+      stakingContract.package.find((item: any) => item.month == month)?.apr || 0
+    );
+  };
+
   const expectedReturn = () => {
     console.log("AMOUNT RETURN");
-    setDailyRewards(0);
-    setTotalRewards(0);
+    // setDailyRewards(0);
+    // setTotalRewards(0);
 
     const amount = form.getFieldValue("amount");
 
-    console.log("AMOUNT: ", amount);
+    console.log("AMOUNT: ", amount, duration);
 
-    if (duration != "Duration") {
-      if (duration == "1 month") {
-        let totalReturns = (+amount / 100) * 12;
-        console.log("Total Returns: ", totalReturns);
-        let dailyRewards = totalReturns / 365;
-        console.log("Daily Returns: ", dailyRewards);
-        setDailyRewards(dailyRewards);
-        setTotalRewards(totalReturns + +amount);
-      } else if (duration == "4 months") {
-        let totalReturns = (+amount / 100) * 18;
-        console.log("Total Returns: ", totalReturns);
-        let dailyRewards = totalReturns / 365;
-        console.log("Daily Returns: ", dailyRewards);
-        setDailyRewards(dailyRewards);
-        setTotalRewards(totalReturns + +amount);
-      } else if (duration == "12 months") {
-        let totalReturns = (+amount / 100) * 30;
-        console.log("Total Returns: ", totalReturns);
-        let dailyRewards = totalReturns / 365;
-        console.log("Daily Returns: ", dailyRewards);
-        setDailyRewards(dailyRewards);
-        setTotalRewards(totalReturns + +amount);
-      }
+    if (!duration || !amount) {
+      return 0;
     }
+    const _duration = duration.split("")[0];
+
+    const amountWithProfit =
+      +amount +
+      round((+amount * +getAPR(_duration) * +_duration) / 12 / 100, 2);
+    return amountWithProfit;
+
+    // if (duration != "Duration") {
+    //   if (duration == "1 month") {
+    //     let totalReturns = (+amount / 100) * 12;
+    //     console.log("Total Returns: ", totalReturns);
+    //     let dailyRewards = totalReturns / 365;
+    //     console.log("Daily Returns: ", dailyRewards);
+    //     setDailyRewards(dailyRewards);
+    //     setTotalRewards(totalReturns + +amount);
+    //   } else if (duration == "4 months") {
+    //     let totalReturns = (+amount / 100) * 18;
+    //     console.log("Total Returns: ", totalReturns);
+    //     let dailyRewards = totalReturns / 365;
+    //     console.log("Daily Returns: ", dailyRewards);
+    //     setDailyRewards(dailyRewards);
+    //     setTotalRewards(totalReturns + +amount);
+    //   } else if (duration == "12 months") {
+    //     let totalReturns = (+amount / 100) * 30;
+    //     console.log("Total Returns: ", totalReturns);
+    //     let dailyRewards = totalReturns / 365;
+    //     console.log("Daily Returns: ", dailyRewards);
+    //     setDailyRewards(dailyRewards);
+    //     setTotalRewards(totalReturns + +amount);
+    //   }
+    // }
   };
 
   const onFinish = async () => {
@@ -229,8 +248,13 @@ const StockWidget: FC = () => {
     }
   };
 
+  useEffect(() => {
+    setIsInitialzed(true);
+  }, []);
+
   const menu = (
     <Menu
+      className="stock-duration-dropdown"
       items={[
         {
           key: "1",
@@ -246,7 +270,7 @@ const StockWidget: FC = () => {
               className={s.menuItems}
               onClick={() => {
                 setDuration("1 month");
-                // expectedReturn();
+                expectedReturn();
               }}
             >
               <div>1 Month</div>
@@ -261,7 +285,7 @@ const StockWidget: FC = () => {
               className={s.menuItems}
               onClick={() => {
                 setDuration("4 months");
-                //expectedReturn();
+                expectedReturn();
               }}
             >
               <div>4 Months</div>
@@ -278,7 +302,7 @@ const StockWidget: FC = () => {
               className={s.menuItems}
               onClick={() => {
                 setDuration("12 months");
-                // expectedReturn();
+                expectedReturn();
               }}
             >
               <div>12 Months</div>
@@ -363,11 +387,13 @@ const StockWidget: FC = () => {
           <div className={s.title}>Rewards</div>
           <div className={s.dailyRewards}>
             <div className={s.heading}>Daily</div>
-            <div className={s.info}>{dailyRewards.toPrecision(3)} PRTN</div>
+            <div className={s.info}>
+              {round(expectedReturn() / 365, 2)} PRTN
+            </div>
           </div>
           <div className={s.totalRewards}>
             <div className={s.heading}>Total</div>
-            <div className={s.info}>{totalRewards.toPrecision(3)} PRTN</div>
+            <div className={s.info}>{round(expectedReturn(), 2)} PRTN</div>
           </div>
         </div>
         {isConnected ? (
@@ -405,74 +431,6 @@ const StockWidget: FC = () => {
         )}
       </div>
       {isConnected && <UserStakes />}
-      {isConnected ? (
-        <div className={s.myStocks}>
-          <div className={s.title}>My Stocks</div>
-          <div className={s.stocks}>
-            <div className={s.card}>
-              <div className={s.row}>
-                <span>Stocked</span>
-                <span>20,000 PRTN</span>
-              </div>
-              <div className={s.row}>
-                <span>Reward</span>
-                <span>1300 PRTN</span>
-              </div>
-              <div className={s.row}>
-                <div className={s.buttons}>
-                  <div>
-                    <Button type="ghost" className="claim btn1">
-                      Claim
-                    </Button>
-                  </div>
-                  <div>
-                    <Button type="ghost" className="claim">
-                      Withdraw
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={s.card}>
-              <div className={s.row}>
-                <span>Stocked</span>
-                <span>20,000 PRTN</span>
-              </div>
-              <div className={s.row}>
-                <span>Reward</span>
-                <span>1300 PRTN</span>
-              </div>
-              <div className={s.row}>
-                <div className={s.buttons}>
-                  <div>
-                    <Button type="ghost" className="claim btn1">
-                      Claim
-                    </Button>
-                  </div>
-                  <div>
-                    <Button type="ghost" className="claim">
-                      Withdraw
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <div className={s.card}>
-              <div className={s.row}>
-                <span>Staked</span>
-                <span>20,000 PRTN</span>
-              </div>
-              <div className={s.row}>
-                <span>Reward</span>
-                <span>1300 PRTN</span>
-              </div>
-            </div> */}
-          </div>
-          <div className={s.viewMore}>View More</div>
-        </div>
-      ) : (
-        <></>
-      )}
     </div>
   );
 };

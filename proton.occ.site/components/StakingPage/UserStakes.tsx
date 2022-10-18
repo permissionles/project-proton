@@ -46,7 +46,7 @@ const UserStakes: FC = () => {
   }, []);
 
   return (
-    <div className={`${s.myStakes} ${s.container}`}>
+    <div className={`${s.myStocks}`}>
       <p className={`${s.feildTitle}`}>My Stocks</p>
       <div className={s.stakeCardsRow}>
         {isLoading && <Spin />}

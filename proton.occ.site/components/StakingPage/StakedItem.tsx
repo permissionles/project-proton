@@ -191,7 +191,7 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
 
   return (
     <div>
-      <div className={`${s.action}`}>
+      <div className={`${s.card}`}>
         <div className={s.item}>
           <span className={s.title}>Stocked</span>
           <span>

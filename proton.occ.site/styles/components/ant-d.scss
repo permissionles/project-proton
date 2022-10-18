@@ -177,3 +177,21 @@
 .ant-dropdown-open {
   background: #2e2e2e;
 }
+
+.stock-duration-dropdown {
+  background: #222222;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  .ant-dropdown-menu-item,
+  .ant-dropdown-menu-submenu-title {
+    color: #fff;
+  }
+  .ant-dropdown-menu-item {
+    border-radius: 10px;
+
+    &:hover {
+      background-color: $color-proton;
+      color: #000;
+    }
+  }
+}
