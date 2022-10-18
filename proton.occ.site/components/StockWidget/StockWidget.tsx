@@ -19,6 +19,7 @@ import { ethers, Signer } from "ethers";
 import { MiscService } from "services";
 import ProtonConfig from "@config/ProtonConfig";
 import math from "mathjs";
+import UserStakes from "@components/StakingPage/UserStakes";
 
 const StockWidget: FC = () => {
   //FORM
@@ -96,6 +97,10 @@ const StockWidget: FC = () => {
   };
 
   const approveToken = async (tokenAmount: any) => {
+    if (tokenAmount == null) {
+      notification.error({ message: "Please enter amount" });
+      return;
+    }
     try {
       setIsApproving(true);
       let contract = new ethers.Contract(
@@ -103,9 +108,10 @@ const StockWidget: FC = () => {
         ProtonConfig.contract.genericABI,
         signer!!
       );
+      const tokenAmountInWei = ethers.utils.parseEther(tokenAmount + "");
       const response = await contract.approve(
         ProtonConfig.contract.proton.staking.address,
-        tokenAmount
+        tokenAmountInWei
       );
       await provider.waitForTransaction(response.hash);
       // await MiscService.approveToken(
@@ -118,8 +124,9 @@ const StockWidget: FC = () => {
       notification.success({ message: "Tokens Approved" });
     } catch (error) {
       console.log("error", error);
-      setIsApproving(false);
+      // setIsApproving(false);
     } finally {
+      setIsApproving(false);
     }
   };
 
@@ -368,6 +375,7 @@ const StockWidget: FC = () => {
             <div className={s.approveBtn}>
               <Button
                 type="primary"
+                loading={isApproving}
                 onClick={() => {
                   approveToken(form.getFieldValue("amount"));
                   //   console.log("Ammount: ", form.getFieldValue("amount"));
@@ -380,6 +388,7 @@ const StockWidget: FC = () => {
             <div className={s.stockBtn}>
               <Button
                 type="primary"
+                loading={isLoading}
                 onClick={() => {
                   onFinish();
                 }}
@@ -395,6 +404,7 @@ const StockWidget: FC = () => {
           </div>
         )}
       </div>
+      {isConnected && <UserStakes />}
       {isConnected ? (
         <div className={s.myStocks}>
           <div className={s.title}>My Stocks</div>

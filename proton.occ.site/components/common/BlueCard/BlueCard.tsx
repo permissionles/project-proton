@@ -35,22 +35,13 @@ const BlueCard: FC<Props> = ({
           <div className={`${s.dataCard}`}>
             <div className={s.timePeriod}>
               <p className={`${s.num} f-lg `}>{textLine3}</p>
-              <div className={`${s.small}`}>Staked</div>
+              {/* <div className={`${s.small}`}>Staked</div> */}
             </div>
             <div className={s.amount}>
               <p className={`${s.title} f-mija`}>
                 {/* {apr} */}
-                Staked
-                <span className={s.approxIcon}>
-                  {/* <Image
-                  src={"/images/approx.png"}
-                  alt="approximately sign"
-                  // layout="fill"
-                  width={16}
-                  height={20}
-                /> */}
-                </span>
-                {/* {krlAmount} */}
+                Stocked
+                {krlAmount}
                 Reward
               </p>
             </div>

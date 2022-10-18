@@ -190,21 +190,36 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
   }, []);
 
   return (
-    <BlueCard
-      textLine1={`${tokenStaked()} ${ProtonConfig.tokenName} `}
-      textLine3={`${remainingDays() ? remainingDays() + " remaining" : ""}`}
-      textLine4={`${
-        currentReward > 0
-          ? `Current Reward: ${round(currentReward, 3)} ${
-              ProtonConfig.tokenName
-            }`
-          : ""
-      }`}
-      apr={`${getAPR() || "-"}% APR`}
-      krlAmount={`${getTotalReturns()} ${ProtonConfig.tokenName}`}
-      itemIndex={itemIndex}
-    >
+    <div>
       <div className={`${s.action}`}>
+        <div className={s.item}>
+          <span className={s.title}>Stocked</span>
+          <span>
+            {tokenStaked()} {ProtonConfig.tokenName}{" "}
+          </span>
+        </div>
+        <div className={s.item}>
+          <span className={s.title}>Current Reward</span>
+          <span>
+            {round(currentReward, 3)} {ProtonConfig.tokenName}
+          </span>
+        </div>
+        <div className={s.item}>
+          <span className={s.title}>APR</span>
+          <span>{getAPR()}</span>
+        </div>
+        <div className={s.item}>
+          <span className={s.title}>Reward</span>
+          <span>
+            {tokenStaked() + getTotalReturns()} {ProtonConfig.tokenName}
+          </span>
+        </div>
+        {remainingDays() && (
+          <div className={s.item}>
+            <span>{remainingDays()} Remaining</span>
+          </div>
+        )}
+
         <div className={`btnWrapper text-center`}>
           <Button
             type="primary"
@@ -214,11 +229,11 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
               processAction(remainingDays() == "");
             }}
           >
-            {remainingDays() ? "CLAIM" : "UNSTAKE"}
+            {remainingDays() ? "Claim" : "Withdraw"}
           </Button>
         </div>
       </div>
-    </BlueCard>
+    </div>
     // <div className={s.container}>Hello</div>
   );
 };
