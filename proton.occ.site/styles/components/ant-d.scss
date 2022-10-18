@@ -125,7 +125,7 @@
 }
 .ant-btn,
 .btn-primary {
-  padding: 18px 89px 18px;
+  // padding: 18px 89px 18px;
   grid-gap: 8px;
   grid-gap: 8px;
   gap: 8px;
@@ -150,9 +150,8 @@
   // $font-default: "Source Sans Pro", sans-serif;
 }
 .ant-btn {
-  height: 3.6rem;
-  // padding-left: 2rem;
-  // padding-right: 2rem;
+  // height: 3.6rem;
+  padding: 1.5rem 2rem;
   border-radius: 10px;
   text-transform: uppercase;
   font-weight: 600;
@@ -165,4 +164,8 @@
   -webkit-justify-content: center;
   -moz-box-pack: center;
   justify-content: center;
+}
+
+.ant-dropdown-open {
+  background: #2e2e2e;
 }

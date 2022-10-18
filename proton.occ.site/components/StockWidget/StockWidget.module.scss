@@ -1,0 +1,191 @@
+@import "/styles/variables.scss";
+
+.container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  .stockTokens {
+    padding: 10px 10px;
+    width: 312px;
+    // height: 328px;
+    background: #1e1e1e;
+    border: 0.841791px solid #0e0e0e;
+    backdrop-filter: blur(1.68358px);
+    border-radius: 21.8866px 21.8866px 0px 0px;
+
+    .headings {
+      display: flex;
+      justify-content: space-between;
+
+      .title {
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .protonPrice {
+        font-weight: 600;
+        font-size: 12px;
+        // line-height: 120%;
+        /* or 14px */
+
+        letter-spacing: 0.01em;
+        text-transform: capitalize;
+
+        span {
+          color: $color-proton;
+        }
+      }
+    }
+
+    .progressBar {
+      .progress {
+        width: 98px;
+      }
+      .infoText {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 15px;
+      }
+    }
+
+    .amountRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+
+      .tokenInfo {
+        color: #fff;
+        width: 40%;
+        display: flex;
+        justify-content: start;
+        font-weight: 700;
+        font-size: 22px;
+        gap: 3px;
+      }
+
+      .amountInput {
+        .inputPad {
+          text-align: right;
+          font-weight: 400;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .dollarAmount {
+      display: flex;
+      justify-content: end;
+      margin-right: 10px;
+      font-weight: 400;
+      font-size: 12px;
+      text-transform: lowercase;
+      color: #a3a3a3;
+    }
+
+    .durationDropDown {
+      margin-top: 5px;
+      .durationBtn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 4px;
+        background: #222222;
+        border-radius: 6px;
+      }
+    }
+
+    .rewardsInfo {
+      margin-top: 20px;
+      .title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #fff;
+      }
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: #7c7c7c;
+
+      .dailyRewards,
+      .totalRewards {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .ctas {
+      margin-top: 22px;
+      display: flex;
+      justify-content: space-between;
+
+      .approveBtn {
+        width: 40%;
+      }
+    }
+
+    .walletConnect {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .myStocks {
+    padding: 10px;
+    margin-top: 3px;
+    width: 312px;
+    height: 239px;
+    background: #1e1e1e;
+    border: 0.841791px solid #0e0e0e;
+    backdrop-filter: blur(1.68358px);
+    border-radius: 0px 0px 21.8866px 21.8866px;
+    // transform: rotate(-180deg);
+
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
+
+    .stocks {
+      .card {
+        padding: 10px;
+        width: 290px;
+        height: 86px;
+        background: #2e2e2e;
+        border-radius: 10px;
+        margin-bottom: 2px;
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+
+          .claim {
+            height: 18px;
+            width: 68px;
+          }
+        }
+      }
+    }
+
+    .viewMore {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 2px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.menuItems {
+  display: flex;
+  justify-content: space-between;
+}

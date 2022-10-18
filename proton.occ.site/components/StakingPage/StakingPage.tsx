@@ -70,41 +70,6 @@ const StakingPage: FC = () => {
       <div className={`${s.compWrapper}`}>
         {/* <Header /> */}
         <div className={`${s.stakingPageContent}`}>
-          <div className={s.stockBg}>
-            <Image
-              src={"/images/staking/stock-title.png"}
-              alt="Stock Bg"
-              height={500}
-              width={1000}
-            />
-          </div>
-          <div className={s.wallet}>
-            <WalletConnect />
-          </div>
-
-          <div className={`${s.cardsRow}`}>
-            <BlueCard
-              textLine1="Overall "
-              textLine2={`Stocked ${ProtonConfig.tokenName}`}
-              textLine3={tokenData.totalStaked}
-              type="small"
-            />
-
-            <BlueCard
-              textLine1="Overall Stocking"
-              textLine2="Rewards Generated"
-              textLine3={tokenData.totalRewardsClaimed}
-              type="small"
-            />
-
-            <BlueCard
-              textLine1={`${ProtonConfig.tokenName}`}
-              textLine2="Price"
-              type="small"
-              textLine3={`$0.004335`}
-            />
-          </div>
-
           <StakeTokens />
 
           {isConnected && <UserStakes />}

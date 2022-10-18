@@ -1,9 +1,11 @@
 import { stocks } from "./contract/stocks";
 
-const isDevelopment = process.env.NEXT_PUBLIC_ENV === 'development'
+const isDevelopment = process.env.NEXT_PUBLIC_ENV === "development";
 
 export const AppConfig = {
-  rpcNetwork: isDevelopment ? 'https://matic-testnet-archive-rpc.bwarelabs.com' : 'https://matic-testnet-archive-rpc.bwarelabs.com',
+  rpcNetwork: isDevelopment
+    ? "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+    : "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   stockTokenList: [
     {
       icon: "/images/icon/usdc.png",
