@@ -18,18 +18,24 @@ import WalletConnect from "@components/common/WalletConnect";
 import { ethers, Signer } from "ethers";
 import { MiscService } from "services";
 import ProtonConfig from "@config/ProtonConfig";
-import math, { round } from "mathjs";
+import { round } from "mathjs";
 import UserStakes from "@components/StakingPage/UserStakes";
 
 const StockWidget: FC = () => {
   const stakingContract = ProtonConfig.contract.proton.staking;
+
+  const [tokenData, setTokenData] = useState({
+    totalStaked: 0,
+    totalRewardsClaimed: "",
+    tokenRate: "",
+  });
 
   //FORM
   const [form] = Form.useForm();
   // Select Duration
   const [duration, setDuration] = useState("Duration");
   //Current PRTN Value
-  const [prtn, setPRTN] = useState(0.0135);
+  const [prtn, setPRTN] = useState(0.056);
   //Total Stocked PRTN
   const [totalStocked, setTotalStocked] = useState(0);
   //Daily Rewards
@@ -140,7 +146,7 @@ const StockWidget: FC = () => {
   };
 
   const expectedReturn = () => {
-    console.log("AMOUNT RETURN");
+    // console.log("AMOUNT RETURN");
     // setDailyRewards(0);
     // setTotalRewards(0);
 
@@ -248,8 +254,30 @@ const StockWidget: FC = () => {
     }
   };
 
+  const getTotalTokenStaked = async () => {
+    try {
+      let response = await MiscService.balanceOf(
+        ProtonConfig.contract.proton.token.address,
+        ProtonConfig.contract.proton.staking.address
+      );
+      response = ethers.utils.formatUnits(response, "ether");
+      console.log("staked", round(response, 2));
+
+      setTokenData((value: any) => {
+        return {
+          ...value,
+          totalStaked: round(response, 2),
+        };
+      });
+      console.log("Nishank getTotalTokenStaked: ", response);
+    } catch (error) {
+      console.log(error, "staked");
+    }
+  };
+
   useEffect(() => {
     setIsInitialzed(true);
+    getTotalTokenStaked();
   }, []);
 
   const menu = (
@@ -259,13 +287,6 @@ const StockWidget: FC = () => {
         {
           key: "1",
           label: (
-            // <a
-            //   target="_blank"
-            //   rel="noopener noreferrer"
-            //   href="https://www.antgroup.com"
-            // >
-            //   1st menu item
-            // </a>
             <div
               className={s.menuItems}
               onClick={() => {
@@ -292,8 +313,6 @@ const StockWidget: FC = () => {
               <div>18% APR</div>
             </div>
           ),
-          //   icon: <SmileOutlined />,
-          //   disabled: true,
         },
         {
           key: "3",
@@ -344,7 +363,7 @@ const StockWidget: FC = () => {
               percent={50.9}
             />
           </div>
-          <div className={s.infoText}>200k / 1Mil</div>
+          <div className={s.infoText}>{tokenData.totalStaked} / 1M</div>
         </div>
         <Form form={form}>
           <div className={s.amountRow}>

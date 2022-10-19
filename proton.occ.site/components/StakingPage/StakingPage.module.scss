@@ -455,7 +455,7 @@
   // background: #1e1e1e;
   // border: 0.841791px solid #0e0e0e;
   backdrop-filter: blur(1.68358px);
-  border-radius: 0px 0px 21.8866px 21.8866px;
+  // border-radius: 0px 0px 21.8866px 21.8866px;
   // transform: rotate(-180deg);
 
   .title {
@@ -500,7 +500,7 @@
 
   .viewMore {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 2px;
     margin-right: 5px;
   }
