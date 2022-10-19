@@ -7,7 +7,7 @@
   width: 312px;
   button {
     color: #000 !important;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .stockTokens {
@@ -62,6 +62,7 @@
       margin-top: 12px;
 
       .tokenInfo {
+        font-family: "Sansation";
         color: #fff;
         width: 40%;
         display: flex;
@@ -76,6 +77,7 @@
           text-align: right;
           font-weight: 400;
           font-size: 22px;
+          padding-right: 7px;
         }
       }
     }
@@ -100,6 +102,7 @@
         padding: 8px 16px;
         gap: 4px;
         background: #222222;
+        color: #05ffff;
         border-radius: 6px;
       }
     }
@@ -136,6 +139,10 @@
         padding: 0 5px;
         button {
           width: 100%;
+          &:disabled {
+            background: #04cccc;
+            opacity: 0.5;
+          }
         }
       }
       .approveBtn {

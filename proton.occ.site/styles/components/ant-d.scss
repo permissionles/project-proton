@@ -195,3 +195,47 @@
     }
   }
 }
+.ant-progress-text {
+  display: none;
+  width: 2em;
+  margin-left: 8px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 1em;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: left;
+  vertical-align: middle;
+  word-break: normal;
+}
+.ant-progress-show-info .ant-progress-outer {
+  margin-right: calc(-2em - 8px);
+  padding-right: unset;
+}
+.ant-progress-bg {
+  position: relative;
+  background-color: #05ffff !important;
+  background-image: unset !important;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+}
+.ant-progress-inner {
+  position: relative;
+  display: inline-block;
+  width: 150%;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 100px;
+  background: gray;
+}
+.ant-form-item {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum", "tnum";
+  vertical-align: top;
+}

@@ -450,13 +450,10 @@
   border: 0.841791px solid #0e0e0e;
   padding: 10px;
   margin-top: 3px;
-  // width: 312px;
-  // height: 239px;
-  // background: #1e1e1e;
-  // border: 0.841791px solid #0e0e0e;
   backdrop-filter: blur(1.68358px);
   border-radius: 0px 0px 21.8866px 21.8866px;
-  // transform: rotate(-180deg);
+  font-family: $font-proton;
+  font-family: 700;
 
   .title {
     font-weight: 700;
@@ -475,11 +472,20 @@
     .item {
       display: flex;
       justify-content: space-between;
+
+      .title {
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: $font-proton !important;
+      }
+
+      .value {
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: $font-proton !important;
+      }
     }
-    .title {
-      font-size: 0.8rem;
-      font-weight: 400;
-    }
+
     button {
       padding: 10px 20px;
       font-size: 0.8rem;
