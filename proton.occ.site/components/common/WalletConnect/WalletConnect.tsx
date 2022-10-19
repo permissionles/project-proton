@@ -6,7 +6,7 @@ const WalletConnect: FC = () => {
   return (
     <div className={`${s.container} `}>
       <div className={`${s.connectBtn}`}>
-        <ConnectButton />
+        <ConnectButton showBalance={false} />
       </div>
     </div>
   );

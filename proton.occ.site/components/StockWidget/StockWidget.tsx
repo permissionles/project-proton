@@ -350,7 +350,9 @@ const StockWidget: FC = () => {
         <div className={s.headings}>
           <div className={s.title}>Stocks</div>
           <div className={s.protonPrice}>
-            $PRTN <span>{prtn}</span>
+            {/* $PRTN <span>{prtn}</span> */}
+
+            {isConnected && <WalletConnect />}
           </div>
         </div>
         <div className={s.progressBar}>
