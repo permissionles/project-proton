@@ -22,7 +22,7 @@ interface Props {
 }
 
 const wagmiClient = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   provider,
 });
