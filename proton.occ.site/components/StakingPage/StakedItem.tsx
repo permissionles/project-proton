@@ -194,29 +194,29 @@ const StakedItem: FC<Props> = ({ stakingData, itemIndex, onUpdate }) => {
       <div className={`${s.card}`}>
         <div className={s.item}>
           <span className={s.title}>Stocked</span>
-          <span>
+          <span className={s.value}>
             {tokenStaked()} {ProtonConfig.tokenName}{" "}
           </span>
         </div>
         <div className={s.item}>
           <span className={s.title}>Current Reward</span>
-          <span>
+          <span className={s.value}>
             {round(currentReward, 3)} {ProtonConfig.tokenName}
           </span>
         </div>
         <div className={s.item}>
           <span className={s.title}>APR</span>
-          <span>{getAPR()}</span>
+          <span className={s.value}>{getAPR()}</span>
         </div>
         <div className={s.item}>
           <span className={s.title}>Reward</span>
-          <span>
+          <span className={s.value}>
             {tokenStaked() + getTotalReturns()} {ProtonConfig.tokenName}
           </span>
         </div>
         {remainingDays() && (
           <div className={s.item}>
-            <span>{remainingDays()} Remaining</span>
+            <span className={s.value}>{remainingDays()} Remaining</span>
           </div>
         )}
 

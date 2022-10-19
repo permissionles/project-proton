@@ -57,6 +57,7 @@ const StockWidget: FC = () => {
   //   const [isApproving, setIsApproving] = useState(false);
 
   const [approvedToken, setApprovedToken] = useState(0);
+  const [isApproved, setisApproved] = useState(false);
 
   const { writeAsync: stakeTokenWrite } = useContractWrite({
     mode: "recklesslyUnprepared",
@@ -131,6 +132,7 @@ const StockWidget: FC = () => {
       // );
 
       notification.success({ message: "Tokens Approved" });
+      setisApproved(true);
     } catch (error) {
       console.log("error", error);
       // setIsApproving(false);
@@ -440,6 +442,7 @@ const StockWidget: FC = () => {
                   onFinish();
                 }}
                 className="ctaBtn"
+                disabled={!isApproved}
               >
                 STOCK
               </Button>

@@ -47,7 +47,7 @@ const UserStakes: FC = () => {
 
   return (
     <div className={`${s.myStocks}`}>
-      <p className={`${s.feildTitle}`}>My Stocks</p>
+      <p className={`${s.feildTitle}`}>My {`Stock's`}</p>
       <div className={s.stakeCardsRow}>
         {isLoading && <Spin />}
         {userStakes.length == 0 ? (

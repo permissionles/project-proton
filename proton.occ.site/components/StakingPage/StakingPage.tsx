@@ -71,7 +71,6 @@ const StakingPage: FC = () => {
         {/* <Header /> */}
         <div className={`${s.stakingPageContent}`}>
           <StakeTokens />
-
           {isConnected && <UserStakes />}
         </div>
       </div>
