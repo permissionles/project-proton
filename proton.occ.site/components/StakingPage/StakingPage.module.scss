@@ -451,9 +451,8 @@
   padding: 10px;
   margin-top: 3px;
   backdrop-filter: blur(1.68358px);
-  border-radius: 0px 0px 21.8866px 21.8866px;
-  font-family: $font-proton;
-  font-family: 700;
+  // border-radius: 0px 0px 21.8866px 21.8866px;
+  // transform: rotate(-180deg);
 
   .title {
     font-weight: 700;
@@ -506,7 +505,7 @@
 
   .viewMore {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 2px;
     margin-right: 5px;
   }
