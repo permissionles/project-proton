@@ -331,7 +331,7 @@ const StockWidget: FC = () => {
     <div className={s.container}>
       <div className={s.stockTokens}>
         <div className={s.headings}>
-          <div className={s.title}>Stocks</div>
+          <div className={s.title}>Safe</div>
           <div className={s.protonPrice}>
             $PRTN <span>{prtn}</span>
           </div>
@@ -423,7 +423,7 @@ const StockWidget: FC = () => {
                 className="ctaBtn"
                 disabled={!isApproved}
               >
-                STOCK
+                Keep Safe
               </Button>
             </div>
           </div>
